@@ -6,7 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger)
 
-const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
+const DistortedImage = ({ image}) => {
   const containerRef = useRef(null);
   const planeRef = useRef(null);
   const scrollEffect = useRef(0);
@@ -152,17 +152,16 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
   }, []);
 
   return (
-    <div className='py-[250px] max-w-[88vw] relative overflow-hidden -rotate-12 left-20'>
+    <div className='md:py-[250px] max-w-[88vw] relative overflow-hidden -rotate-12 left-8 md:left-20'>
       <div
         ref={containerRef}
         style={{
-          width: width,
-          height: height,
           margin: "0 auto",
           position: "relative",
           perspective: "1200px",
           transformStyle: "preserve-3d"
         }}
+        className=' h-[40vh] md:w-[60vw] md:h-[400px] flex items-center justify-center'
       >
         <img
           src={image}
@@ -170,7 +169,7 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
           crossOrigin="anonymous"
           data-sampler="uSampler"
           id='distorted-image'
-          className='opacity-0 absolute w-full h-full object-cover'
+          className='opacity-0 absolute w-[140vw] md:w-full h-full object-cover'
         />
       </div>
     </div>
