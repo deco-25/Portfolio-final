@@ -1,3 +1,4 @@
-import quoteShape from './quote.svg';
+import quoteShape from "./quote.svg";
+import DeCoLogo from "./Images/DecoLogo.png";
 
-export { quoteShape };
+export { quoteShape, DeCoLogo };
