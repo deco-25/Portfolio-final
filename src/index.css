@@ -16,6 +16,7 @@
   font-style: normal;
 }
 
+<<<<<<< HEAD
 @font-face {
   font-family: "Lato";
   src: url("/fonts/Lato-Regular.ttf") format("truetype");
@@ -27,3 +28,15 @@
   text-shadow: -1px -1px 0 #525252, 1px -1px 0 #525252, -1px 1px 0 #525252,
     1px 1px 0 #525252;
 }
+=======
+  .text-outline {
+    text-shadow: -1px -1px 0 #525252, 1px -1px 0 #525252, -1px 1px 0 #525252, 1px 1px 0 #525252;
+  }
+
+  .text-outline-small {
+    text-shadow: -0.75px -1px 0 #525252, 0.75px -0.75px 0 #525252, -0.75px 0.75px 0 #525252, 0.75px 0.75px 0 #525252;
+  }
+
+  
+
+>>>>>>> 0b3818a053a05f8fdcfd7d41f67db847bdfc90b9
