@@ -109,7 +109,7 @@ const Header = () => {
             >
               <div className="flex flex-col gap-5">
                 <div className="font-lato flex flex-col gap-3 text-gray-400">
-                  <h1 className="font-garet text-white">Connet Now</h1>
+                  <h1 className="font-garet text-white">Connect Now</h1>
                   <h1>+91 84387 16946</h1>
                   <h1>+91 88254 60719</h1>
                   <h1 className="font-garet">
