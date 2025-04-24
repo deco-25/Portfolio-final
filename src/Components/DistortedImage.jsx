@@ -1,12 +1,12 @@
-import { useEffect, useRef } from 'react';
-import { Curtains, Plane } from 'curtainsjs';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import { Curtains, Plane } from "curtainsjs";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
+const DistortedImage = ({ image }) => {
   const containerRef = useRef(null);
   const planeRef = useRef(null);
   const scrollEffect = useRef(0);
@@ -58,8 +58,6 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
     }
 `;
 
-
-
     const fragmentShader = `
     precision mediump float;
 
@@ -79,8 +77,6 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
     }
 `;
 
-
-
     const params = {
       vertexShader,
       fragmentShader,
@@ -88,8 +84,8 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
       heightSegments: 20,
       uniforms: {
         uScrollEffect: {
-          name: 'uScrollEffect',
-          type: '1f',
+          name: "uScrollEffect",
+          type: "1f",
           value: 0,
         },
       },
@@ -109,7 +105,8 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
 
     const animate = () => {
       // Smooth interpolation with directional preservation
-      scrollEffect.current += (targetScrollEffect.current - scrollEffect.current) * 0.08;
+      scrollEffect.current +=
+        (targetScrollEffect.current - scrollEffect.current) * 0.08;
 
       // Apply to shader
       if (planeRef.current?.uniforms?.uScrollEffect) {
@@ -123,16 +120,16 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
     };
 
     rafID.current = requestAnimationFrame(animate);
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       cancelAnimationFrame(rafID.current);
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
       if (plane?.remove) plane.remove();
       if (curtains?.dispose) curtains.dispose();
     };
   }, [image]);
-  
+
   useGSAP(() => {
     // Keep the scale animation
     gsap.fromTo(
@@ -142,35 +139,34 @@ const DistortedImage = ({ image, height = "600px", width = "70%" }) => {
         scale: 1.2,
         scrollTrigger: {
           trigger: containerRef.current,
-          start: 'top bottom',
-          end: 'bottom bottom',
+          start: "top bottom",
+          end: "bottom bottom",
           scrub: 1,
         },
-        ease: 'none',
+        ease: "none",
       }
     );
   }, []);
 
   return (
-    <div className='py-[250px] max-w-[88vw] relative overflow-hidden -rotate-12 left-20'>
+    <div className="md:py-[250px] max-w-[88vw] relative overflow-hidden -rotate-12 left-8 md:left-20">
       <div
         ref={containerRef}
         style={{
-          width: width,
-          height: height,
           margin: "0 auto",
           position: "relative",
           perspective: "1200px",
-          transformStyle: "preserve-3d"
+          transformStyle: "preserve-3d",
         }}
+        className=" h-[40vh] md:w-[60vw] md:h-[400px] flex items-center justify-center"
       >
         <img
           src={image}
           alt="Parabolic distortion effect"
           crossOrigin="anonymous"
           data-sampler="uSampler"
-          id='distorted-image'
-          className='opacity-0 absolute w-full h-full object-cover'
+          id="distorted-image"
+          className="opacity-0 absolute w-[140vw] md:w-full h-full object-cover"
         />
       </div>
     </div>
