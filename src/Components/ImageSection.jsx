@@ -6,6 +6,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { imageSectionData } from "../data";
 import { FaLongArrowAltRight } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const ImageSection = () => {
   const overlayRef = useRef(null);
@@ -157,12 +158,12 @@ const ImageSection = () => {
         ))}
       </div>
 
-      <div className="h-[30vh] relative z-[1000] flex justify-center items-center bg-primaryBlack">
+      <div className="h-[30vh] relative z-50 flex justify-center items-center bg-primaryBlack">
         <span className="flex items-center gap-5 py-28 text-white">
           <p>HOP ON A CALL</p>
-          <button className="bg-white p-4 rounded-full text-black group">
+          <a href="#connect" className="bg-white p-4 rounded-full text-black group">
             <FaLongArrowAltRight className="group-hover:translate-x-1 duration-300" />
-          </button>
+          </a>
         </span>
       </div>
     </div>

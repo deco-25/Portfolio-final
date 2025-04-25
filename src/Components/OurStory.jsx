@@ -3,7 +3,6 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { div } from "motion/react-client";
 import StrongBrand from "./StrongBrand";
 
 const OurStory = () => {

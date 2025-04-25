@@ -4,7 +4,7 @@ export default function TestimonialCard() {
   return <AnimatedTestimonials testimonials={testimonials} />;
 }
 
-import { IconArrowLeft, IconArrowRight } from "@tabler/icons-react";
+import { FaCircleArrowRight, FaCircleArrowLeft } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 
 import { useEffect, useState } from "react";
@@ -139,13 +139,13 @@ export const AnimatedTestimonials = ({ testimonials, autoplay = true }) => {
               onClick={handlePrev}
               className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"
             >
-              <IconArrowLeft className="h-8 w-8 text-black transition-transform duration-300 group-hover/button:rotate-12 " />
+              <FaCircleArrowLeft className="h-8 w-8 text-gray-600 transition-transform duration-300 group-hover/button:rotate-12 " />
             </button>
             <button
               onClick={handleNext}
               className="group/button flex h-10 w-10 items-center justify-center rounded-full bg-gray-100"
             >
-              <IconArrowRight className="h-8 w-8 text-black transition-transform duration-300 group-hover/button:-rotate-12 d" />
+              <FaCircleArrowRight className="h-8 w-8 text-gray-600 transition-transform duration-300 group-hover/button:-rotate-12 d" />
             </button>
           </div>
         </div>

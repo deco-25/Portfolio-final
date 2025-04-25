@@ -120,7 +120,7 @@ const DecoApproach = () => {
           <p className="md:text-xl text-center">
             Free consultation + 3 weeks of support, because we care about your
             success.
-            <Link className="underline pl-2">Setup a call now</Link>
+            <a href="#connect" className="underline pl-2">Setup a call now</a>
           </p>
         </section>
 
