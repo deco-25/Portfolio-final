@@ -49,14 +49,14 @@ const Footer = () => {
     <div className="flex w-screen justify-center items-center bg-[#070707] text-white">
       <div className="flex flex-col w-[80%] justify-center items-center">
         <div className="flex flex-col w-full justify-center items-center h-screen gap-16">
-          <div className="text-6xl text-center font-aboreto flex flex-col gap-4">
+          <div className="text-6xl text-center font-aboreto flex flex-col gap-4 max-md:text-xl">
             <h1>Not yet convinced?</h1>
             <h1>Let's Talk</h1>
           </div>
           <div className="w-full">
-            <div className="px-12 flex flex-col gap-12">
-              <div className="flex gap-8">
-                <div className="relative w-[50%]">
+            <div className="md:px-12 flex flex-col gap-12">
+              <div className="flex max-md:flex-col gap-8">
+                <div className="relative md:w-[50%]">
                   <input
                     type="text"
                     id="charming-name"
@@ -72,7 +72,7 @@ const Footer = () => {
                     Your charming name
                   </label>
                 </div>
-                <div className="relative w-[50%]">
+                <div className="relative md:w-[50%]">
                   <input
                     type="text"
                     id="email-address"
@@ -89,18 +89,18 @@ const Footer = () => {
                   </label>
                 </div>
               </div>
-              <div className="relative">
+              <div className="relative max-md:text-xs">
                 <input
                   type="text"
                   id="project-details"
                   name="project-details"
                   placeholder=" "
                   required
-                  className="peer w-full text-white p-2 pt-6 bg-black placeholder-transparent border-b border-[#f5f5f5] focus:outline-none focus:border-white focus:border focus:rounded-xl duration-200 transition-all"
+                  className="peer w-full text-white p-2 max-md:my-6 pt-6 bg-black placeholder-transparent border-b border-[#f5f5f5] focus:outline-none focus:border-white focus:border focus:rounded-xl duration-200 transition-all"
                 />
                 <label
                   htmlFor="project-details"
-                  className="absolute left-2 -top-2 text-sm text-gray-400 bg-black px-1 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-[#f5f5f5] peer-focus:-top-2 peer-focus:text-sm peer-focus:text-white"
+                  className="absolute left-2 -top-2 text-sm max-md:text-xs text-gray-400 bg-black px-1 transition-all duration-200 peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-base peer-placeholder-shown:text-[#f5f5f5] peer-focus:-top-2 peer-focus:text-sm  peer-focus:text-white"
                 >
                   We'd love to hear more about your project
                 </label>

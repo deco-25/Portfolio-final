@@ -40,7 +40,6 @@ const DecoApproach = () => {
       end: "+=3000", // scroll distance in px (adjust as needed)
       pin: true,
       scrub: true,
-      markers: true,
       onUpdate: (self) => {
         const progress = self.progress;
         const totalSteps = approachSteps.length;

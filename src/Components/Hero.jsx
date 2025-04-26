@@ -14,7 +14,7 @@ const Hero = () => {
   return (
     <div
       id="portfolio"
-      className="relative h-screen overflow-hidden bg-[#f5f5f5] flex flex-col gap-12 justify-center items-center"
+      className="relative  min-h-screen overflow-hidden bg-[#f5f5f5] flex flex-col gap-12 justify-center items-center"
     >
       {/* Black Overlay */}
       <AnimatePresence>
@@ -31,18 +31,24 @@ const Hero = () => {
 
       {/* Hero Content */}
       <div className="z-10">
-        <h1 className="font-aboreto font-[500] text-7xl">INNOVATING AT THE</h1>
+        <h1 className="font-aboreto font-[500] text-7xl max-md:text-xl">
+          INNOVATING AT THE
+        </h1>
       </div>
-      <div className="flex justify-center gap-8 z-10">
-        <h1 className="font-aboreto font-[500] text-7xl">INTERSECTION OF</h1>
-        <p className="font-garet max-w-[35%] text-start">
+      <div className="flex justify-center gap-8 z-10 ">
+        <h1 className="font-aboreto font-[500] text-7xl max-md:text-xl">
+          INTERSECTION OF
+        </h1>
+        <p className="font-garet max-w-[35%] text-start max-md:hidden">
           Great products are built where design meets code with strategy. At
           Deco, we create seamless digital experiences that don’t just look good
           but perform exceptionally.
         </p>
       </div>
       <div className="z-10">
-        <h1 className="font-aboreto font-[600] text-7xl">DESIGN & CODE</h1>
+        <h1 className="font-aboreto font-[600] text-7xl max-md:text-xl">
+          DESIGN & CODE
+        </h1>
       </div>
     </div>
   );

@@ -1,11 +1,27 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./Layout/Layout";
 import Homepage from "./Pages/Homepage";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
 import AnimatedCursor from "react-animated-cursor";
+import CountUp from "react-countup";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 export default function App() {
+  const [isLoading, setLoading] = useState(true);
+  const [isCountUpFinished, setIsCountupFinished] = useState(false);
+  useGSAP(() => {
+    if (isCountUpFinished) {
+      gsap.to("#wait-text", {
+        y: 0,
+        duration: 1,
+        opacity: 1,
+        ease: "power2.out",
+      });
+    }
+  }, [isCountUpFinished]);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 2,
@@ -27,6 +43,17 @@ export default function App() {
     };
   });
 
+  useEffect(() => {
+    let timer;
+    if (isCountUpFinished) {
+      timer = setTimeout(() => {
+        setLoading(false);
+      }, 2000);
+    }
+
+    return () => clearTimeout(timer);
+  }, [isCountUpFinished]);
+
   return (
     <BrowserRouter>
       <AnimatedCursor
@@ -44,11 +71,32 @@ export default function App() {
           backgroundColor: "#000",
         }}
       />
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Homepage />} />
-        </Route>
-      </Routes>
+      {isLoading ? (
+        <div className="w-screen h-screen flex flex-col gap-2 text-center items-center justify-center bg-black z-50">
+          <div className="loader text-white text-7xl font-bold">
+            <CountUp
+              start={0}
+              end={100}
+              duration={4}
+              onEnd={() => setIsCountupFinished(true)}
+            />
+          </div>
+          <h2
+            id={`${isCountUpFinished && "wait-text"}`}
+            className="text-4xl font-bold opacity-0 translate-y-20 text-white"
+          >
+            wait
+          </h2>
+        </div>
+      ) : (
+        <>
+          <Routes>
+            <Route path="/" element={<Layout />}>
+              <Route index element={<Homepage />} />
+            </Route>
+          </Routes>
+        </>
+      )}
     </BrowserRouter>
   );
 }

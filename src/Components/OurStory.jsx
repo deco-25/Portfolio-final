@@ -37,18 +37,25 @@ const OurStory = () => {
 
   return (
     <div id="storyblock">
-      <div className="h-screen flex gap-12 justify-center items-center bg-[#f5f5f5] sticky top-0">
-        <div id="story" className="w-[60%] flex flex-col gap-8">
+      <div className="h-screen flex max-md:min-h-screen max-md:flex-col gap-12 justify-center items-center bg-[#f5f5f5] sticky top-0">
+        <div id="story" className="md:w-[60%] max-md:px-8 flex flex-col gap-8">
+          <div className="font-aboreto text-2xl text-center flex flex-col gap-4 md:hidden">
+            <h1 className="-translate-x-6">OUR STORY AND</h1>
+            <h1 className="translate-x-6">WHAT WE DO</h1>
+          </div>
           <h1
             id="storyTitle"
-            className="font-semibold text-4xl leading-[150%] font-lato"
+            className="font-semibold text-4xl leading-[150%] font-lato max-md:text-xl"
           >
             HOW DOES DECO DRIVE
-            <br /> YOUR BUSINESS FORWARD?
+            <span className="max-md:hidden">
+              <br />
+            </span>{" "}
+            YOUR BUSINESS FORWARD?
           </h1>
           <p
             id="storydescription"
-            className="font-garet text-justify pr-20 text-lg"
+            className="font-garet text-justify md:pr-20 text-lg max-md:text-sm"
           >
             No fluff, no exaggeration — At Deco, we blend design, code, and
             innovation to craft seamless, high—performance digital experiences.
@@ -72,7 +79,7 @@ const OurStory = () => {
         <div
           id="verticalText"
           style={{ writingMode: "vertical-rl", lineHeight: "1" }}
-          className="font-aboreto text-7xl text-end flex flex-col gap-8"
+          className="font-aboreto text-7xl text-end flex flex-col gap-8 max-md:hidden"
         >
           <h1>OUR STORY AND</h1>
           <h1>WHAT WE DO</h1>
