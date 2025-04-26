@@ -86,15 +86,15 @@ const Header = () => {
             />
           </div>
 
-          <div className="flex flex-1 px-32 py-8">
-            <div className="text-5xl font-aboreto">
-              <ul className="flex flex-col h-full justify-around text-gray-900">
+          <div className="flex flex-1 md:px-32 py-8  max-md:px-8">
+            <div className="text-5xl font-aboreto max-md:text-3xl">
+              <ul className="flex flex-col h-full justify-around text-gray-900 max-md:pb-10">
                 {navLinks.map((item, index) => (
                   <li key={index} ref={addToRefs}>
                     <a
                       href={item.link}
                       onClick={() => setMenuClicked(false)}
-                      className="text-white/60 hover:text-white transition-colors duration-300 ease-in-out"
+                      className="text-white/60 cursor-none hover:text-white transition-colors duration-300 ease-in-out"
                     >
                       {item.title}
                     </a>
@@ -104,7 +104,7 @@ const Header = () => {
             </div>
 
             <div
-              className="w-full flex flex-col items-end justify-end p-4 text-2xl"
+              className="w-full flex flex-col items-end justify-end p-4 text-2xl max-md:hidden"
               ref={connectCardRef}
             >
               <div className="flex flex-col gap-5">
@@ -118,16 +118,16 @@ const Header = () => {
                 </div>
                 <div className="flex gap-4 text-gray-400 w-full justify-between px-8">
                   <FiShare2
-                    className="text-gray-400 cursor-pointer hover:text-white transition-colors duration-300"
+                    className="text-gray-400 cursor-none hover:text-white transition-colors duration-300"
                     size={24}
                   />
                   <FaLinkedin
                     size={24}
-                    className="cursor-pointer hover:text-blue-500 transition-colors duration-300"
+                    className="cursor-none hover:text-white transition-colors duration-300"
                   />
                   <FaWhatsapp
                     size={24}
-                    className="cursor-pointer hover:text-green-500 transition-colors duration-300"
+                    className="cursor-none hover:text-white transition-colors duration-300"
                   />
                 </div>
               </div>
@@ -141,11 +141,13 @@ const Header = () => {
         <img src={DeCoLogo} alt="Logo" className="w-[80px]" />
       </div>
       <div className="flex items-center gap-8 text-lg font-lato">
-        <div>CONTACT</div>
-        <div onClick={() => setMenuClicked(true)}>MENU</div>
+        <div className="max-md:hidden">CONTACT</div>
+        <div onClick={() => setMenuClicked(true)} className="max-md:hidden">
+          MENU
+        </div>
         <MdMenu
           onClick={() => setMenuClicked(true)}
-          className="cursor-pointer hover:scale-150 duration-200 ease-linear"
+          className="hover:scale-150 duration-200 ease-linear"
         />
       </div>
     </div>

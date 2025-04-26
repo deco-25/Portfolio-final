@@ -5,6 +5,7 @@ import {
   MessageCircle,
   Phone,
   Share2,
+  Mail,
 } from "lucide-react";
 import { FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import React, { useState } from "react";
@@ -41,8 +42,42 @@ const Footer = () => {
           ? correctAnswers[Math.floor(Math.random() * correctAnswers.length)]
           : wrongAnswer[Math.floor(Math.random() * wrongAnswer.length)];
         setIsCorrect(randomResponse);
+        setNum1(Math.floor(Math.random() * 10) + 1);
+        setNum2(Math.floor(Math.random() * 10) + 1);
+        setUserAnswer("");
       }
     }
+  };
+
+  const scrollToPortfolio = () => {
+    const portfolioSection = document.getElementById("portfolio");
+    if (!portfolioSection) return;
+
+    const targetPosition =
+      portfolioSection.getBoundingClientRect().top + window.pageYOffset;
+    const startPosition = window.pageYOffset;
+    const distance = targetPosition - startPosition;
+    const duration = 2000; // 2 seconds
+    let startTime = null;
+
+    const easeInOutQuad = (t) => {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    };
+
+    const animation = (currentTime) => {
+      if (startTime === null) startTime = currentTime;
+      const timeElapsed = currentTime - startTime;
+      const run =
+        easeInOutQuad(timeElapsed / duration) * distance + startPosition;
+      window.scrollTo(0, run);
+      if (timeElapsed < duration) {
+        requestAnimationFrame(animation);
+      } else {
+        window.scrollTo(0, targetPosition); // Ensure it ends exactly at the target
+      }
+    };
+
+    requestAnimationFrame(animation);
   };
 
   return (
@@ -54,7 +89,7 @@ const Footer = () => {
             <h1>Let's Talk</h1>
           </div>
           <div className="w-full">
-            <div className="md:px-12 flex flex-col gap-12">
+            <div className="md:px-20 flex flex-col gap-12">
               <div className="flex max-md:flex-col gap-8">
                 <div className="relative md:w-[50%]">
                   <input
@@ -105,7 +140,7 @@ const Footer = () => {
                   We'd love to hear more about your project
                 </label>
               </div>
-              <div className="flex items-center justify-center gap-2">
+              <div className="flex items-center justify-center gap-2 md:pl-[150px]">
                 <div className="bg-white text-black w-[25px] h-[25px] flex items-center justify-center rounded-sm">
                   {num1}
                 </div>
@@ -121,8 +156,11 @@ const Footer = () => {
                   onKeyDown={handleKeyDown}
                   className="bg-white text-black w-[25px] h-[25px] text-center rounded-sm border [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none appearance-none"
                 />
-                <div className="ml-2">{isCorrect}</div>
+                <div className="ml-2 min-w-[250px] max-md:hidden">
+                  {isCorrect}
+                </div>
               </div>
+              <div className="min-w-[250px] text-center -mt-8">{isCorrect}</div>
               <div className="flex justify-center">
                 <button className="bg-white text-black font-semibold px-10 py-2 rounded-full">
                   Send Mail
@@ -139,13 +177,13 @@ const Footer = () => {
             <div>
               <h1 className="text-xl font-aboreto">Ready to work together?</h1>
             </div>
-            <div className="flex flex-col w-full justify-center items-center font-lato">
+            <div className="flex flex-col w-full justify-center items-center font-lato max-md:hidden">
               <div className="flex w-full justify-between items-center">
                 <div className="flex flex-col justify-center items-center">
                   <MapPin size={24} color="#ffffff" fill="#ffffff" />
                   <h1>Puducherry</h1>
                 </div>
-                <div className="text-3xl font-semibold">
+                <div className="text-3xl font-semibold ml-10">
                   reachdeco@gmail.com
                 </div>
                 <div className="flex flex-col justify-center items-center">
@@ -154,19 +192,42 @@ const Footer = () => {
                 </div>
               </div>
             </div>
+            <div className="flex flex-col w-screen  font-lato flex-1">
+              <div className="flex w-full items-start  flex-col gap-8 p-12">
+                <div className="flex  justify-center gap-4 items-center">
+                  <MapPin size={24} color="#ffffff" />
+                  <h1>Puducherry</h1>
+                </div>
+                <div className="flex  justify-center gap-4 items-center">
+                  <Mail size={24} color="#ffffff" />
+                  reachdeco@gmail.com
+                </div>
+                <div className="flex  justify-center items-center gap-4">
+                  <Phone size={24} color="#ffffff" />
+                  <h1>+91 99999 88888</h1>
+                </div>
+              </div>
+            </div>
           </div>
-          <div className="w-full">
+
+          <div className="w-full max-md:hidden">
             <TextHoverEffect text="DeCo" />
           </div>
-          <div className="flex w-full font-garet justify-between py-5">
-            <div className="flex items-center gap-4">
-              <div className="border hover:border-slate-500 rounded-full">
-                <ChevronUp />
+          <div className="flex w-full font-garet md:justify-between py-5">
+            <div className="flex items-center gap-4 max-md:hidden">
+              <div onClick={scrollToPortfolio} className="cursor-none">
+                <div className="border hover:border-slate-500 rounded-full">
+                  <ChevronUp />
+                </div>
               </div>
-              Back Top
+              <div onClick={scrollToPortfolio} className="cursor-none">
+                Back Top
+              </div>
             </div>
-            <div>2025 © DeCo. All rights resevered.</div>
-            <div className="flex gap-4">
+            <div className="text-center">
+              2025 © DeCo. All rights resevered.
+            </div>
+            <div className="flex gap-4 max-md:hidden">
               <div>Follow Us</div>
               <div>
                 <Share2 size={24} />

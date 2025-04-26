@@ -78,15 +78,24 @@ export default function App() {
       <CustomCursor />
       {isLoading ? (
         <div className="w-screen h-screen flex flex-col gap-1 text-center items-center justify-center bg-black z-50">
+          <h2
+            className={`text-4xl font-bold font-aboreto duration-300 ease-in-out text-white ${
+              isCountUpFinished
+                ? "opacity-0 translate-y-20"
+                : "opacity-100 translate-y-0"
+            }`}
+          >
+            WAIT
+          </h2>
           <CountLoader duration={4} />
           <h2
-            className={`text-4xl font-bold duration-300 ease-in-out text-white ${
+            className={`text-4xl font-bold font-aboreto duration-300 ease-in-out text-white ${
               isCountUpFinished
                 ? "opacity-100 translate-y-0"
                 : "opacity-0 translate-y-20"
             }`}
           >
-            wait
+            Let' Go
           </h2>
         </div>
       ) : (

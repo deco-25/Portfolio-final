@@ -18,6 +18,8 @@ const OurStory = () => {
     });
 
     story
+      .to(".story-title1", { translateX: -10, duration: 1 })
+      .to(".story-title2", { translateX: 10, duration: 1 })
       .from("#storyTitle", { y: 30, opacity: 0, duration: 1 })
       .from("#storydescription", { y: 30, opacity: 0, duration: 1 });
 
@@ -39,8 +41,8 @@ const OurStory = () => {
       <div className="h-screen flex max-md:min-h-screen max-md:flex-col gap-12 justify-center items-center bg-[#f5f5f5] sticky top-0">
         <div id="story" className="md:w-[60%] max-md:px-8 flex flex-col gap-8">
           <div className="font-aboreto text-2xl text-center flex flex-col gap-4 md:hidden">
-            <h1 className="-translate-x-6">OUR STORY AND</h1>
-            <h1 className="translate-x-6">WHAT WE DO</h1>
+            <h1 className="story-title1">OUR STORY AND</h1>
+            <h1 className="story-title2">WHAT WE DO</h1>
           </div>
           <h1
             id="storyTitle"
