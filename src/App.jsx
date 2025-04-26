@@ -9,6 +9,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CountLoader from "./Components/CountLoader";
 import { preloadAssets } from "./utils";
+import CustomCursor from "./Components/CustomCursor";
 
 export default function App() {
   const [isLoading, setLoading] = useState(true);
@@ -76,21 +77,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <AnimatedCursor
-        color="0, 0, 0" // black
-        innerSize={0}
-        outerSize={35}
-        innerScale={1}
-        outerScale={1.7}
-        outerAlpha={0}
-        outerStyle={{
-          mixBlendMode: "difference", // creates black/white invert effect
-          backgroundColor: "#fff", // needed for exclusion to visibly contrast
-        }}
-        innerStyle={{
-          backgroundColor: "#000",
-        }}
-      />
+      <CustomCursor />
       {isLoading ? (
         <div className="w-screen h-screen flex flex-col gap-1 text-center items-center justify-center bg-black z-50">
           <CountLoader duration={4} />
