@@ -3,8 +3,6 @@ import Layout from "./Layout/Layout";
 import Homepage from "./Pages/Homepage";
 import { useEffect, useState } from "react";
 import Lenis from "@studio-freight/lenis";
-import AnimatedCursor from "react-animated-cursor";
-import CountUp from "react-countup";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import CountLoader from "./Components/CountLoader";
