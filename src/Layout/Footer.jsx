@@ -46,7 +46,7 @@ const Footer = () => {
   };
 
   return (
-    <div className="flex w-screen justify-center items-center bg-[#070707] text-white">
+    <div className="flex w-screen justify-center items-center relative z-50 bg-[#070707] text-white">
       <div className="flex flex-col w-[80%] justify-center items-center">
         <div className="flex flex-col w-full justify-center items-center h-screen gap-16">
           <div className="text-6xl text-center font-aboreto flex flex-col gap-4 max-md:text-xl">

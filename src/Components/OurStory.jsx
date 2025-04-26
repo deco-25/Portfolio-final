@@ -3,7 +3,6 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
-import { div } from "motion/react-client";
 import StrongBrand from "./StrongBrand";
 
 const OurStory = () => {
@@ -13,14 +12,14 @@ const OurStory = () => {
     const story = gsap.timeline({
       scrollTrigger: {
         trigger: "#story",
-        start: "top center",
+        start: "bottom-=300 bottom",
         toggleActions: "play none none none",
       },
     });
 
     story
-      .from("#storyTitle", { y: 30, opacity: 0, duration: 1 }, 0.5)
-      .from("#storydescription", { y: 30, opacity: 0, duration: 1 }, 0.5);
+      .from("#storyTitle", { y: 30, opacity: 0, duration: 1 })
+      .from("#storydescription", { y: 30, opacity: 0, duration: 1 });
 
     // Parallax animation for vertical text
     gsap.to("#verticalText", {

@@ -7,6 +7,8 @@ import AnimatedCursor from "react-animated-cursor";
 import CountUp from "react-countup";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
+import CountLoader from "./Components/CountLoader";
+import { preloadAssets } from "./utils";
 
 export default function App() {
   const [isLoading, setLoading] = useState(true);
@@ -54,6 +56,24 @@ export default function App() {
     return () => clearTimeout(timer);
   }, [isCountUpFinished]);
 
+  useEffect(() => {
+    const runPreloader = async () => {
+      const preloadPromise = preloadAssets();
+      const timerPromise = new Promise((resolve) => setTimeout(resolve, 4000));
+
+      await Promise.all([preloadPromise, timerPromise]);
+
+      setIsCountupFinished(true); // Trigger transition/text change immediately
+
+      // Wait an extra 1 second before removing the loader
+      setTimeout(() => {
+        setLoading(false);
+      }, 1000);
+    };
+
+    runPreloader();
+  }, []);
+
   return (
     <BrowserRouter>
       <AnimatedCursor
@@ -72,18 +92,14 @@ export default function App() {
         }}
       />
       {isLoading ? (
-        <div className="w-screen h-screen flex flex-col gap-2 text-center items-center justify-center bg-black z-50">
-          <div className="loader text-white text-7xl font-bold">
-            <CountUp
-              start={0}
-              end={100}
-              duration={4}
-              onEnd={() => setIsCountupFinished(true)}
-            />
-          </div>
+        <div className="w-screen h-screen flex flex-col gap-1 text-center items-center justify-center bg-black z-50">
+          <CountLoader duration={4} />
           <h2
-            id={`${isCountUpFinished && "wait-text"}`}
-            className="text-4xl font-bold opacity-0 translate-y-20 text-white"
+            className={`text-4xl font-bold duration-300 ease-in-out text-white ${
+              isCountUpFinished
+                ? "opacity-100 translate-y-0"
+                : "opacity-0 translate-y-20"
+            }`}
           >
             wait
           </h2>
