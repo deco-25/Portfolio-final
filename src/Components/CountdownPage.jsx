@@ -42,7 +42,7 @@ const CountdownPage = () => {
         <div className="max-md:hidden">
           <TextHoverEffect text="DeCo" />
         </div>
-        <h2 className="text-[30.3rem] max-md:text-[7rem] opacity-50 font-lato font-bold  px-8 text-black/60 text-outline ">
+        <h2 className="text-[30.3rem] md:hidden max-md:text-[7rem] opacity-50 font-lato font-bold  px-8 text-black/60 text-outline ">
           DECO
         </h2>
       </div>
