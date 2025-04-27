@@ -37,7 +37,7 @@ const CountdownPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 text-white w-screen h-screen justify-center items-center bg-primaryBlack">
+    <div className="flex flex-col gap-8 text-white w-screen h-[100dvh] justify-center items-center bg-primaryBlack">
       <div className="w-full absolute text-center">
         <div className="max-md:hidden">
           <TextHoverEffect text="DeCo" />
