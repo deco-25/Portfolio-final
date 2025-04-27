@@ -5,10 +5,13 @@ import DecoApproach from "../Components/DecoApproach";
 import Hero from "../Components/Hero";
 import OurStory from "../Components/OurStory";
 import StrongBrand from "../Components/StrongBrand";
+import Header from "../Layout/Header";
+import Footer from "../Layout/Footer";
 
 const Homepage = () => {
   return (
     <div>
+      <Header />
       <Hero />
       <OurStory />
 
@@ -19,6 +22,7 @@ const Homepage = () => {
         {/* Spacer for mobile only */}
         <DecoApproach />
       </div>
+      <Footer />
     </div>
   );
 };

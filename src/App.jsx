@@ -8,9 +8,10 @@ import { useGSAP } from "@gsap/react";
 import CountLoader from "./Components/CountLoader";
 import { preloadAssets } from "./utils";
 import CustomCursor from "./Components/CustomCursor";
+import CountdownPage from "./Components/CountdownPage";
 
 export default function App() {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [isCountUpFinished, setIsCountupFinished] = useState(false);
   useGSAP(() => {
     if (isCountUpFinished) {
@@ -102,7 +103,8 @@ export default function App() {
         <>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<Homepage />} />
+              <Route index element={<CountdownPage />} />
+              <Route path="/counting" element={<CountdownPage />} />
             </Route>
           </Routes>
         </>
