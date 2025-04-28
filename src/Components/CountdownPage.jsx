@@ -14,7 +14,7 @@ const CountdownPage = () => {
       );
     } else {
       return (
-        <div className="flex gap-4 text-white z-20 text-7xl max-md:text-5xl font-aboreto">
+        <div className="flex gap-4 text-white z-20 text-7xl max-md:text-6xl font-aboreto">
           <div className="flex flex-col items-center">
             <span>{String(days).padStart(2, "0")}</span>
             <span className="text-sm">Days</span>
@@ -37,14 +37,11 @@ const CountdownPage = () => {
   };
 
   return (
-    <div className="flex flex-col gap-8 text-white w-screen h-[100dvh] justify-center items-center bg-primaryBlack">
+    <div className="flex flex-col gap-8 relative text-white w-screen h-screen justify-center items-center bg-primaryBlack">
       <div className="w-full absolute text-center">
         <div className="max-md:hidden">
           <TextHoverEffect text="DeCo" />
         </div>
-        <h2 className="text-[30.3rem] md:hidden max-md:text-[7rem] opacity-50 font-lato font-bold  px-8 text-black/60 text-outline ">
-          DECO
-        </h2>
       </div>
       <Countdown
         date={launchDate}
@@ -54,6 +51,9 @@ const CountdownPage = () => {
       <h1 className="z-20 text-3xl font-garet max-md:text-xl">
         A new era begins on MAY 1.
       </h1>
+      <div className="bg-[#121212] shadow-black shadow-3xl text-white z-50 absolute bottom-0 left-0 right-0 text-center py-2 text-lg font-garet">
+        © DeCo 2025
+      </div>
     </div>
   );
 };

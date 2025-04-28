@@ -57,7 +57,7 @@ const Footer = () => {
       portfolioSection.getBoundingClientRect().top + window.pageYOffset;
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
-    const duration = 2000; // 2 seconds
+    const duration = 1000; // 2 seconds
     let startTime = null;
 
     const easeInOutQuad = (t) => {
@@ -192,7 +192,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col w-screen  font-lato flex-1">
+            <div className="flex flex-col w-screen  font-lato flex-1 md:hidden">
               <div className="flex w-full items-start  flex-col gap-8 p-12">
                 <div className="flex  justify-center gap-4 items-center">
                   <MapPin size={24} color="#ffffff" />
@@ -228,7 +228,6 @@ const Footer = () => {
               2025 © DeCo. All rights resevered.
             </div>
             <div className="flex gap-4 max-md:hidden">
-              <div>Follow Us</div>
               <div>
                 <Share2 size={24} />
               </div>

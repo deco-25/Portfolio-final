@@ -4,8 +4,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export default function MinimalCustomCursor() {
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const [cursorPosition, setCursorPosition] = useState({ x: 0, y: 0 });
+  const [mousePosition, setMousePosition] = useState({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  });
+  const [cursorPosition, setCursorPosition] = useState({
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2,
+  });
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
