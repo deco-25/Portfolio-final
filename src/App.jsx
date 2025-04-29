@@ -96,7 +96,7 @@ export default function App() {
                 : "opacity-0 translate-y-20"
             }`}
           >
-            Let' Go
+            Let's Go
           </h2>
         </div>
       ) : (
@@ -104,6 +104,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Layout />}>
               <Route index element={<CountdownPage />} />
+              <Route path="/home" element={<Homepage />} />
               <Route path="/counting" element={<CountdownPage />} />
             </Route>
           </Routes>
