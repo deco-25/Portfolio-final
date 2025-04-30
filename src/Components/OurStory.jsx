@@ -18,10 +18,10 @@ const OurStory = () => {
     });
 
     story
-      .to(".story-title1", { translateX: -10, duration: 1 })
-      .to(".story-title2", { translateX: 10, duration: 1 })
-      .from("#storyTitle", { y: 30, opacity: 0, duration: 1 })
-      .from("#storydescription", { y: 30, opacity: 0, duration: 1 });
+      .to(".story-title1", { translateX: -10, duration: 0.5 })
+      .to(".story-title2", { translateX: 10, duration: 0.5 })
+      .from("#storyTitle", { y: 30, opacity: 0, duration: 0.5 })
+      .from("#storydescription", { y: 30, opacity: 0, duration: 0.5 });
 
     // Parallax animation for vertical text
     gsap.to("#verticalText", {

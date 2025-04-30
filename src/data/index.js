@@ -1,8 +1,8 @@
-import solutionImg1 from "../assets/Solution images/1.jpg";
-import solutionImg2 from "../assets/Solution images/2.jpg";
-import solutionImg3 from "../assets/Solution images/3.jpg";
-import solutionImg4 from "../assets/Solution images/4.jpg";
-import solutionImg5 from "../assets/Solution images/5.jpg";
+import solutionImg1 from "../assets/Solution images/UI UX.webp";
+import solutionImg2 from "../assets/Solution images/Apps.webp";
+import solutionImg3 from "../assets/Solution images/CMS.webp";
+import solutionImg4 from "../assets/Solution images/Softwares.webp";
+import solutionImg5 from "../assets/Solution images/AI ML.webp";
 
 const imageSectionData = [
   {

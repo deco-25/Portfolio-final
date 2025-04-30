@@ -1,9 +1,9 @@
 const imageAssets = [
-    '../assets/Solution images/1.jpg',
-    '../assets/Solution images/2.jpg',
-    '../assets/Solution images/3.jpg',
-    '../assets/Solution images/4.jpg',
-    '../assets/Solution images/5.jpg',
+    '../assets/Solution images/UI UX.webp',
+    '../assets/Solution images/Apps.webp',
+    '../assets/Solution images/CMS.webp',
+    '../assets/Solution images/Softwares.webp',
+    '../assets/Solution images/AI ML.webp',
 ]
 
 const fontAssets = [
