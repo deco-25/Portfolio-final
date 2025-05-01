@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DistortedImage = ({ image }) => {
+const DistortedImage = ({ image, isMobile }) => {
   const containerRef = useRef(null);
   const planeRef = useRef(null);
   const scrollEffect = useRef(0);
@@ -16,9 +16,6 @@ const DistortedImage = ({ image }) => {
   const connectLabelRef = useRef(null);
   const curtainsRef = useRef(null);
   const mousePosRef = useRef({ x: 0, y: 0 });
-  const imgRef = useRef(null);
-
-  const [showConnect, setShowConnect] = useState(false);
 
   // Vertex shader with parabolic distortion
   const vertexShader = `
@@ -82,7 +79,11 @@ const DistortedImage = ({ image }) => {
         },
       };
 
-      planeRef.current = new Plane(curtainsRef.current, containerRef.current, params);
+      planeRef.current = new Plane(
+        curtainsRef.current,
+        containerRef.current,
+        params
+      );
 
       // Set up onReady callback to handle when the plane is ready
       planeRef.current.onReady(() => {
@@ -134,7 +135,8 @@ const DistortedImage = ({ image }) => {
 
   // Animation loop
   const animate = useCallback(() => {
-    scrollEffect.current += (targetScrollEffect.current - scrollEffect.current) * 0.08;
+    scrollEffect.current +=
+      (targetScrollEffect.current - scrollEffect.current) * 0.08;
 
     if (planeRef.current?.uniforms?.uScrollEffect) {
       planeRef.current.uniforms.uScrollEffect.value = scrollEffect.current;
@@ -147,7 +149,10 @@ const DistortedImage = ({ image }) => {
       curtainsRef.current.needRender();
     }
 
-    if (Math.abs(scrollEffect.current) > 0.001 || Math.abs(targetScrollEffect.current) > 0.001) {
+    if (
+      Math.abs(scrollEffect.current) > 0.001 ||
+      Math.abs(targetScrollEffect.current) > 0.001
+    ) {
       rafID.current = requestAnimationFrame(animate);
     } else {
       rafID.current = null;
@@ -160,7 +165,11 @@ const DistortedImage = ({ image }) => {
   }, []);
 
   const manageAnimation = useCallback(() => {
-    if (!rafID.current && (Math.abs(scrollEffect.current) > 0.001 || Math.abs(targetScrollEffect.current) > 0.001)) {
+    if (
+      !rafID.current &&
+      (Math.abs(scrollEffect.current) > 0.001 ||
+        Math.abs(targetScrollEffect.current) > 0.001)
+    ) {
       rafID.current = requestAnimationFrame(animate);
     }
   }, [animate]);
@@ -201,7 +210,7 @@ const DistortedImage = ({ image }) => {
       containerRef.current,
       { scale: 0.8 },
       {
-        scale: 1.2,
+        scale: isMobile ? 1.6 :  1.4,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top bottom",
@@ -211,97 +220,60 @@ const DistortedImage = ({ image }) => {
         ease: "none",
       }
     );
-  }, []);
-
-  // Mouse handlers
-  const handleMouseMove = useCallback((e) => {
-    const rect = containerRef.current.getBoundingClientRect();
-    mousePosRef.current = {
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top
-    };
-
-    if (connectLabelRef.current) {
-      connectLabelRef.current.style.left = `${e.clientX - rect.left + 10}px`;
-      connectLabelRef.current.style.top = `${e.clientY - rect.top}px`;
-    }
-  }, []);
-
-  const handleMouseEnter = useCallback(() => {
-    setShowConnect(true);
-    gsap.killTweensOf(connectLabelRef.current);
-    gsap.to(connectLabelRef.current, {
-      opacity: 1,
-      duration: 0.3,
-      ease: "power1.out"
-    });
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    gsap.killTweensOf(connectLabelRef.current);
-    gsap.to(connectLabelRef.current, {
-      opacity: 0,
-      duration: 0.2,
-      onComplete: () => setShowConnect(false)
-    });
-  }, []);
+  }, [isMobile]);
 
   return (
-    <div className="md:py-[250px] max-w-[88vw] relative overflow-hidden left-8 top-5 md:top-0 -rotate-12 md:left-20">
+    <div className="relative py-10 md:py-[250px] h-full max-w-[88vw] overflow-hidden left-8 top-5 md:top-0 -rotate-12 md:left-20">
+    <div
+      ref={containerRef}
+      style={{
+        margin: "0 auto",
+        position: "relative",
+        zIndex: 20,
+        transform: "translateZ(0)",
+        perspective: "1200px",
+        transformStyle: "preserve-3d",
+      }}
+      className="h-[40vh] md:h-[50vh] mt-10 md:mt-0 md:w-[60vw] flex items-center justify-center"
+    >
+      <img
+        src={image}
+        alt="Parabolic distortion effect"
+        crossOrigin="anonymous"
+        data-sampler="uSampler"
+        id="distorted-image"
+        className="opacity-0 absolute w-full min-h-[40vh] min-w-[100%] md:min-w-[140vw] object-center object-cover"
+      />
+
+      {/* CONNECT label that follows mouse */}
       <div
-        ref={containerRef}
+        ref={connectLabelRef}
+        className="absolute z-60 pointer-events-none bg-black bg-opacity-75 px-3 py-1 rounded-full"
         style={{
-          margin: "0 auto",
-          position: "relative",
-          zIndex: 20, // Higher z-index to ensure it's above the overlay
-          transform: "translateZ(0)",
-          perspective: "1200px",
-          transformStyle: "preserve-3d",
+          position: "absolute",
+          left: `${mousePosRef.current.x + 10}px`,
+          top: `${mousePosRef.current.y}px`,
+          opacity: 0,
+          transform: "translate(10px, -50%)",
         }}
-        className="h-[35vh] sm:h-[50vh] md:w-[60vw] md:h-[400px] flex items-center justify-center"
       >
-        <img
-          src={image}
-          alt="Parabolic distortion effect"
-          crossOrigin="anonymous"
-          data-sampler="uSampler"
-          id="distorted-image"
-          className="opacity-0 absolute min-w-[140vw] md:w-full h-full object-center object-cover"
-        />
-
-        {/* CONNECT label that follows mouse */}
-        <div
-          ref={connectLabelRef}
-          className="absolute z-60 pointer-events-none bg-black bg-opacity-75 px-3 py-1 rounded-full"
-          style={{
-            position: "absolute",
-            left: `${mousePosRef.current.x + 10}px`,
-            top: `${mousePosRef.current.y}px`,
-            opacity: 0,
-            transform: "translate(10px, -50%)" // Position to the right with 10px gap, vertical center alignment
-          }}
-        >
-          <span className="text-white font-semibold text-sm whitespace-nowrap">
-            CONNECT
-          </span>
-        </div>
-
-        {/* Transparent hover capture layer */}
-        <a
-          className="absolute inset-0 z-50 cursor-pointer"
-          style={{
-            pointerEvents: "auto",
-            backgroundColor: "transparent",
-          }}
-          // onMouseEnter={handleMouseEnter}
-          // onMouseLeave={handleMouseLeave}
-          // onMouseMove={handleMouseMove}
-          href="#connect"
-        />
+        <span className="text-white font-semibold text-sm whitespace-nowrap">
+          CONNECT
+        </span>
       </div>
+
+      {/* Transparent hover capture layer */}
+      <a
+        className="absolute inset-0 z-50 cursor-pointer"
+        style={{
+          pointerEvents: "auto",
+          backgroundColor: "transparent",
+        }}
+        href="#connect"
+      />
     </div>
+  </div>
   );
 };
-
 
 export default DistortedImage;

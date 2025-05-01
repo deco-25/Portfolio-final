@@ -44,7 +44,7 @@ const Hero = () => {
   return (
     <div
       id="portfolio"
-      className="relative min-h-screen max-md:py-[20vh] max-md:gap-[20vh] overflow-hidden bg-[#f5f5f5] flex flex-col justify-center items-center"
+      className="relative min-h-screen max-md:py-[20vh] max-md:gap-[20vh] overflow-hidden bg-[#f5f5f5] flex flex-col justify-center items-center select-none"
     >
       {/* Black Overlay */}
       <AnimatePresence>
@@ -60,21 +60,25 @@ const Hero = () => {
       </AnimatePresence>
 
       {/* Hero Text Content */}
-      <div className="z-50 flex flex-col items-center mt-10 max-md:gap-2 max-md:mb-[30vh]">
-        <h1 className="font-aboreto font-[500] text-7xl max-md:text-2xl">
+      <div className="relative md:z-10 flex flex-col bg-transparent items-center mt-10 max-md:gap-2 max-md:mb-[30vh]">
+        <h1 className="font-aboreto  text-8xl max-md:text-2xl">
           INNOVATING AT THE
         </h1>
         <div className="flex justify-center gap-8 md:mt-6">
-          <h1 className="font-aboreto font-[500] text-7xl max-md:text-2xl">
+          <h1 className="font-aboreto  text-8xl max-md:text-2xl">
             INTERSECTION OF
           </h1>
-          <p className="font-garet max-w-[35%] text-start max-md:hidden">
-            Great products are built where design meets code with strategy. At
-            Deco, we create seamless digital experiences that don’t just look
-            good but perform exceptionally.
-          </p>
+          <div className="flex justify-center flex-col font-garet text-sm max-w-[35%] text-start max-md:hidden -ml-2">
+            <p>
+              Great products are built where design meets code with strategy.
+            </p>
+            <p>
+              At Deco, we create seamless digital experiences that don’t just{" "}
+            </p>
+            <p>look good but perform exceptionally.</p>
+          </div>
         </div>
-        <h1 className="font-aboreto font-[600] text-7xl max-md:text-3xl md:mt-6">
+        <h1 className="font-aboreto text-8xl max-md:text-3xl md:mt-6">
           DESIGN & CODE
         </h1>
       </div>
@@ -82,8 +86,8 @@ const Hero = () => {
       {/* Vanta Globe */}
       <div
         ref={vantaRef}
-        className="absolute md:top-0 max-md:bottom-0 left-0 w-full h-screen  max-md:max-h-[50dvh] z-0 opacity-25 pointer-events-none"
-      ></div>
+        className="absolute md:top-0 max-md:z-20 max-md:bottom-0 left-0 w-full h-screen max-md:max-h-[100dvh] max-md:scale-x-[-1] max-md:rotate-[180deg]  opacity-25 pointer-events-none"
+      />
     </div>
   );
 };

@@ -26,11 +26,11 @@ export default function App() {
 
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 2,
+      duration: 3,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
       direction: "vertical",
       smooth: true,
-      wheelMultiplier: 2,
+      wheelMultiplier: 1,
     });
 
     function raf(time) {
@@ -103,7 +103,7 @@ export default function App() {
         <>
           <Routes>
             <Route path="/" element={<Layout />}>
-              <Route index element={<CountdownPage />} />
+              <Route index element={<Homepage />} />
               <Route path="/home" element={<Homepage />} />
               <Route path="/counting" element={<CountdownPage />} />
             </Route>
