@@ -11,7 +11,7 @@ import CustomCursor from "./Components/CustomCursor";
 import CountdownPage from "./Components/CountdownPage";
 
 export default function App() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [isCountUpFinished, setIsCountupFinished] = useState(false);
   useGSAP(() => {
     if (isCountUpFinished) {
