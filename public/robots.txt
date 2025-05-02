@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://teamdeco.in/sitemap.xml
