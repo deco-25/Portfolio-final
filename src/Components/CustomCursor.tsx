@@ -15,33 +15,33 @@ export default function MinimalCustomCursor() {
   const [isHovering, setIsHovering] = useState(false);
 
   useEffect(() => {
-    const handleMouseMove = (e: MouseEvent) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
-    };
+  const handleMouseMove = (e: MouseEvent) => {
+    setMousePosition({ x: e.clientX, y: e.clientY });
+  };
 
-    const handleHoverStart = () => setIsHovering(true);
-    const handleHoverEnd = () => setIsHovering(false);
+  const handleHoverStart = () => setIsHovering(true);
+  const handleHoverEnd = () => setIsHovering(false);
 
-    // Add hover detection to interactive elements
-    const interactiveElements = document.querySelectorAll(
-      "a, button, input, [role='button'], select, textarea"
-    );
+  const interactiveElements = document.querySelectorAll(
+    "a, button, input, [role='button'], select, textarea"
+  );
 
+  interactiveElements.forEach((el) => {
+    el.addEventListener("mouseenter", handleHoverStart);
+    el.addEventListener("mouseleave", handleHoverEnd);
+  });
+
+  document.addEventListener("mousemove", handleMouseMove);
+
+  return () => {
+    document.removeEventListener("mousemove", handleMouseMove);
     interactiveElements.forEach((el) => {
-      el.addEventListener("mouseenter", handleHoverStart);
-      el.addEventListener("mouseleave", handleHoverEnd);
+      el.removeEventListener("mouseenter", handleHoverStart);
+      el.removeEventListener("mouseleave", handleHoverEnd);
     });
+  };
+}, []);
 
-    document.addEventListener("mousemove", handleMouseMove);
-
-    return () => {
-      document.removeEventListener("mousemove", handleMouseMove);
-      interactiveElements.forEach((el) => {
-        el.removeEventListener("mouseenter", handleHoverStart);
-        el.removeEventListener("mouseleave", handleHoverEnd);
-      });
-    };
-  }, []);
 
   // Update cursor position with easing effect
   useEffect(() => {

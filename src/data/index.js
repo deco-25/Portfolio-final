@@ -15,7 +15,7 @@ const imageSectionData = [
     image: solutionImg2,
     title: "Web & Mobile Applications",
     subtitle: "Turning ideas into fast, responsive applications",
-    tags: "Full-Stack Development • Cross-Platform Apps • API Integrations",
+    tags: "Full Stack Development • Cross Platform Apps • API Integrations",
   },
   {
     image: solutionImg3,
