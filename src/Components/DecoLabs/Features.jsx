@@ -18,7 +18,6 @@ const FeaturesComponent = ({ ...props }) => {
         trigger : `#day-${props.number}`,
         start : 'top bottom',
         scrub : true,
-        markers : true
       }
     })
   },[])
@@ -115,7 +114,7 @@ const FeaturesComponent = ({ ...props }) => {
       </div>
       <div>
         <h1
-          className="text-[300px] text-[#808080] font-bold font-tommy -mr-[100px]"
+          className="text-[350px] text-black text-outline font-bold font-ilisarniq  -mr-[100px]"
           style={{ writingMode: "sideways-rl" }}
         >
           {props.number}
