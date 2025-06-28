@@ -32,14 +32,14 @@ const Landing = () => {
   }, [hovering])
 
   useGSAP(() => {
-    gsap.to('#text-content', {
+    gsap.to("#text-content", {
       opacity: 0.3,
       rotateZ: 4,
-      transformOrigin: '100% 50%', // right center
+      transformOrigin: "100% 50%", // right center
       scrollTrigger: {
-        trigger: '.text-content-head',
-        start: 'top top',
-        end: 'bottom top',
+        trigger: ".text-content-head",
+        start: "top top",
+        end: "bottom top",
         scrub: true,
       }
     })
@@ -100,7 +100,6 @@ const Landing = () => {
           <h1 className="text-chunk stroke-text text-[60px] z-[10] font-extrabold leading-[100px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
-
         </div>
         <h1 className="text-chunk pt-8 text-xl font-medium font-lato max-md:text-sm z-10">
           <span className="underline" onMouseEnter={() => setHovering("Cohort-based")} onMouseLeave={() => setHovering("")}>Cohort-based</span> Agentic AI{" "}
@@ -128,9 +127,7 @@ const Landing = () => {
       </div>
       </div>
 
-      <div>
-
-      </div>
+      <div></div>
     </div>
   );
 };
