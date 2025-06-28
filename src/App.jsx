@@ -9,9 +9,10 @@ import CountLoader from "./Components/CountLoader";
 import { preloadAssets } from "./utils";
 import CustomCursor from "./Components/CustomCursor";
 import CountdownPage from "./Components/CountdownPage";
+import DeCoLabs from "./Pages/DeCoLabs";
 
 export default function App() {
-  const [isLoading, setLoading] = useState(true);
+  const [isLoading, setLoading] = useState(false);
   const [isCountUpFinished, setIsCountupFinished] = useState(false);
   useGSAP(() => {
     if (isCountUpFinished) {
@@ -105,6 +106,7 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Homepage />} />
               <Route path="/home" element={<Homepage />} />
+              <Route path="/DecoLabs" element={<DeCoLabs />} />
               <Route path="/counting" element={<CountdownPage />} />
             </Route>
           </Routes>

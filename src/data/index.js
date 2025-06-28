@@ -4,6 +4,8 @@ import solutionImg3 from "../assets/Solution images/CMS.webp";
 import solutionImg4 from "../assets/Solution images/Softwares.webp";
 import solutionImg5 from "../assets/Solution images/AI ML.webp";
 
+export { solutionImg1 };
+
 const imageSectionData = [
   {
     image: solutionImg1,
