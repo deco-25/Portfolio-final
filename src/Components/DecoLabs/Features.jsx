@@ -1,10 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { solutionImg1 } from "../../data";
 import { epochs } from "../../data/decoOrginals";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 
 const FeaturesComponent = ({ ...props }) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const ref = React.useRef(null);
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  useGSAP(() => {
+    gsap.from(`#day-text-${props.number}`, {
+      left: 200,
+      scrollTrigger: {
+        trigger: `#day-${props.number}`,
+        start: "top bottom",
+        scrub: true,
+        markers: true,
+      },
+    });
+  }, []);
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -48,12 +65,13 @@ const FeaturesComponent = ({ ...props }) => {
             </h1>
           </div>
 
-          <div className="h-full text-center pl-32 flex justify-center items-end -mb-[30px] max-md:hidden">
+          <div className="h-full text-center pl-96 flex justify-center items-end -mb-[30px] max-md:hidden">
             <h1
+              id={`day-text-${props.number}`}
               data-text={`DAY - ${props.number}`}
               className="text-[90px] font-bold font-ilisarniq half-fill-text"
             >
-              DAY - {props.number}
+              <span id={`day-${props.number}`}>DAY - {props.number}</span>
             </h1>
           </div>
 
@@ -65,8 +83,7 @@ const FeaturesComponent = ({ ...props }) => {
               className="w-full h-full object-cover transition duration-500"
             />
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="absolute bottom-[-100%] opacity-0 left-0 w-full text-white p-4 px-12 z-20 transition-all duration-200 group-hover:bottom-20 group-hover:opacity-100 ease-linear">
-              <h1 className="text-xl font-semibold mb-4">{props.title}</h1>
+            <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
               <p className="text-lg font-garet text-white/60 max-sm:text-xs text-justify">
                 {props.content}
               </p>

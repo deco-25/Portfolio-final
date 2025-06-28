@@ -44,6 +44,11 @@
     -0.75px 0.75px 0 #525252, 0.75px 0.75px 0 #525252;
 }
 
+.custom-stroke {
+  color: transparent;               /* Make inside transparent */
+  -webkit-text-stroke: 1px rgb(255, 255, 255);   /* Outline thickness and color */
+}
+
 * {
   cursor: default !important;
 }
