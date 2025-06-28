@@ -32,9 +32,9 @@ const FeaturesComponent = ({ ...props }) => {
       ref={ref}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetOffset}
-      className="min-h-screen flex items-center justify-between overflow-hidden"
+      className="min-h-screen flex items-center overflow-hidden"
     >
-      <div className="flex items-center gap-8 w-[80vw]">
+      <div className="flex h-screen items-center gap-8 w-[80vw]">
         <div className="h-screen relative flex flex-col justify-between items-start w-[90%]">
           {/* OPOINT Text */}
 
@@ -58,7 +58,7 @@ const FeaturesComponent = ({ ...props }) => {
           </div>
 
           {/* Image Section */}
-          <div className="relative bottom-0 z-20 md:aspect-[16/10] max-md:aspect-[8/16] md:h-[80%] max-md:h-[80vh] group ">
+          <div className="relative bottom-0 left-0 z-20 md:aspect-[16/10] max-md:aspect-[8/16] md:h-[80%] max-md:h-[80vh] group ">
             <img
               src={solutionImg1}
               alt="Solution"
@@ -66,6 +66,7 @@ const FeaturesComponent = ({ ...props }) => {
             />
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute bottom-[-100%] opacity-0 left-0 w-full text-white p-4 px-12 z-20 transition-all duration-200 group-hover:bottom-20 group-hover:opacity-100 ease-linear">
+              <h1 className="text-xl font-semibold mb-4">{props.title}</h1>
               <p className="text-lg font-garet text-white/60 max-sm:text-xs text-justify">
                 {props.content}
               </p>
@@ -109,7 +110,7 @@ const FeaturesComponent = ({ ...props }) => {
 
 const Features = () => {
   return (
-    <div className="min-h-screen text-white relative">
+    <div className="min-h-screen text-white relative flex flex-col justify-between">
       {epochs.map((ele, ind) => (
         <FeaturesComponent
           key={ind}

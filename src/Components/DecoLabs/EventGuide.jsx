@@ -11,101 +11,85 @@ const EventGuide = () => {
         <h1 className="text-4xl font-extrabold  text-white font-ilisarniq max-md:text-3xl">
           EVENT GUIDE
         </h1>
-        <div className="flex md:gap-8 max-md:gap-4 flex-col">
-          <div className="flex items-center gap-4">
-            <div className="bg-[#4e4b4b] p-2 rounded-xl">
-              {" "}
-              <GiEarthAmerica size={40} className="max-md:hidden" />
-              <GiEarthAmerica size={30} className="md:hidden" />
-            </div>
-            <div>
-              <h1 className="text-xl max-md:text-lg font-lato font-semibold">
-                Environment
-              </h1>
-              <p className="font-garet max-md:text-xs">
-                Atal Incubation Centre <span className="font-lato">(</span>
-                AIC<span className="font-lato">-</span>PECF
-                <span className="font-lato">)</span>
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="bg-[#4e4b4b] p-2 rounded-xl">
-              {" "}
-              <MdOutlinePriceCheck
-                size={40}
-                className="text-white max-md:hidden"
-              />
-              <MdOutlinePriceCheck size={30} className="text-white md:hidden" />
-            </div>
-            <div>
-              <h1 className="text-xl max-md:text-lg font-lato font-semibold">
-                Inference Fee
-              </h1>
-              <p className="font-garet">
-                <span className="font-lato max-md:text-xs">₹1699</span>
-              </p>
-            </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <div className="bg-[#4e4b4b] p-2 rounded-xl">
-              {" "}
-              <MdTranslate size={40} className="max-md:hidden text-white" />
-              <MdTranslate size={30} className="md:hidden text-white" />
-            </div>
-            <div>
-              <h1 className="text-xl max-md:text-lg font-lato font-semibold">
-                Conversation
-              </h1>
-              <p className="font-garet max-md:text-xs">English</p>
-              <p className="text-white/50 max-md:text-xs">
-                <span className="font-lato">(</span>
-                But hey<span className="font-lato">-</span>we’ll switch to Tamil
-                if you need it!
-                <span className="font-lato">)</span>
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="flex h-min flex-col gap-8 bg-[#4e4b4b]/40 p-8 rounded-3xl">
-        <div>
-          <h1 className="text-4xl font-extrabold  text-white font-ilisarniq max-md:text-3xl">
-            COHORT RUNTIME
-          </h1>
-        </div>
-        <div className="flex flex-col items-center gap-4">
-          <div className="flex md:gap-8 flex-col gap-4">
-            <div className="flex gap-4">
+        <div className="flex md:gap-8 max-md:gap-4 max-md:flex-col">
+          <div className="flex flex-col gap-12 justify-between">
+            <div className="flex items-center gap-4">
               <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                <FaUsers size={40} className="text-white" />
+                {" "}
+                <GiEarthAmerica size={40} className="max-md:hidden" />
+                <GiEarthAmerica size={30} className="md:hidden" />
               </div>
-              <div className="flex flex-col gap-2">
-                <h1 className="text-xl font-lato font-semibold">Batch 1</h1>
-                <p className="font-garet max-md:text-sm">
-                  Aug 23<span className="font-lato">, </span>Aug 30, Sept 06
-                  <span className="font-lato">, </span>Sept 13
+              <div>
+                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                  Environment
+                </h1>
+                <p className="font-garet max-md:text-xs">
+                  Atal Incubation Centre <span className="font-lato">(</span>
+                  AIC<span className="font-lato">-</span>PECF
+                  <span className="font-lato">)</span>
                 </p>
               </div>
             </div>
-            <div className="flex gap-4">
+            <div className="flex items-center gap-4">
               <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                <FaUsers size={40} className="text-white" />
+                {" "}
+                <MdOutlinePriceCheck
+                  size={40}
+                  className="text-white max-md:hidden"
+                />
+                <MdOutlinePriceCheck
+                  size={30}
+                  className="text-white md:hidden"
+                />
               </div>
-              <div className="flex flex-col gap-2">
-                <h1 className="text-xl font-lato font-semibold">Batch 2</h1>
-                <p className="font-garet max-md:text-sm">
-                  Aug 2<span className="font-lato">4, </span>Aug 31, Sept 07
-                  <span className="font-lato">, </span>Sept 1
-                  <span className="font-lato">4</span>
+              <div>
+                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                  Inference Fee
+                </h1>
+                <p className="font-garet">
+                  <span className="font-lato max-md:text-xs">₹1699</span>
                 </p>
               </div>
             </div>
           </div>
-          <div>
-            <h1 className="text-white/60 max-md:px-6 max-md:text-xs">
-              Final batch assignment will be decided by the organizers
-            </h1>
+          <div className="flex gap-12 justify-between flex-col">
+            <div className="flex items-center gap-4">
+              <div className="bg-[#4e4b4b] p-2 rounded-xl">
+                {" "}
+                <MdTranslate size={40} className="max-md:hidden text-white" />
+                <MdTranslate size={30} className="md:hidden text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                  Conversation
+                </h1>
+                <p className="font-garet max-md:text-xs">English</p>
+                <p className="text-white/50 max-md:text-xs">
+                  <span className="font-lato">(</span>
+                  But hey<span className="font-lato">-</span>we’ll switch to
+                  Tamil if you need it!
+                  <span className="font-lato">)</span>
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="bg-[#4e4b4b] p-2 rounded-xl">
+                {" "}
+                <FaUsers size={40} className="text-white" />
+              </div>
+              <div>
+                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                  Cohort Runtime
+                </h1>
+                <p className="font-garet max-md:text-sm">
+                  6 Saturdays <span className="font-lato">|</span> 6 Epochs{" "}
+                  <span className="font-lato">|</span> 6 Milestones
+                </p>
+                <p className="text-white/50 max-md:text-xs">
+                  Aug 23, 30, Sept 06, 13, 20, 27
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -24,7 +24,7 @@ const Questions = () => {
         <div className="flex flex-col md:h-screen w-full items-center justify-between">
           <div className="w-full flex flex-col justify-center md:gap-4 items-center py-4 text-center">
             <div>
-              <h1 className="text-xl font-aboreto">
+              <h1 className="text-xl font-aboreto mt-8">
                 Questions? We're just an email away
               </h1>
             </div>

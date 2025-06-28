@@ -12,7 +12,7 @@ const Landing = () => {
           className="w-full h-full object-cover transition duration-500 z-50 hidden"
         />
       </div>
-      <div className="absolute flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px] hidden">
+      <div className="absolute flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px] ">
         <img src={HalfLogo} alt="" className="w-8 invert" />
         <p
           className="text-lg font-bold font-garet"
