@@ -20,6 +20,15 @@ const FeaturesComponent = ({ ...props }) => {
         scrub : true,
       }
     })
+
+    gsap.fromTo('.circle-text',{
+      rotate: 0,
+    },{
+      rotate: 360,
+      duration: 4,
+      repeat: -1,
+      ease: "linear",
+    })
   },[])
 
   const handleMouseMove = (e) => {
@@ -100,9 +109,11 @@ const FeaturesComponent = ({ ...props }) => {
               willChange: "transform",
             }}
           >
+            <div className="circle-text">
             <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
               VIEW PRODUCT
             </h1>
+            </div>
           </div>
           <h1
             className="text-xl text-[#808080] font-bold font-garet"
