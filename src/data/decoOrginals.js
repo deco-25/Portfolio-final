@@ -1,3 +1,5 @@
+import { link } from "motion/react-client";
+
 const epochs = [
   {
     number: "01",
@@ -49,4 +51,35 @@ const epochs = [
   },
 ];
 
-export { epochs };
+const joinning = [
+  {
+    title: "EARLY BIRD",
+    content:
+      "A discounted rate for those who register early and secure their spot in the cohort before anyone else.",
+    price: "1799",
+    link: "https://forms.gle/XBs9NoYjiM8etoW28",
+  },
+  {
+    title: "PAST ATTENDEE",
+    content:
+      "Available to previous DeCo workshop participants. Enter your workshop ID (sent to your email) to unlock this discount.",
+    price: "1899",
+    link: "https://forms.gle/FQh7CA6XyTckvcKE7",
+  },
+  {
+    title: "STUDENT",
+    content:
+      "For students currently pursuing their education and looking to gain hands-on experience with real-world AI. Upload a valid college/school ID.",
+    price: "1999",
+    link: "https://forms.gle/oXLL46e6YMXDC9J8A",
+  },
+  {
+    title: "GENERAL",
+    content:
+      "Ideal for those already in the industry—whether in tech, design, or research—who want to deepen their understanding of AI and LLMs.",
+    price: "2099",
+    link: "https://forms.gle/wZF1ecr3ZfmzkdJf7",
+  },
+];
+
+export { epochs, joinning };

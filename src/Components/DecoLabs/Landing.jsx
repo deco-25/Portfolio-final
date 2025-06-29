@@ -55,18 +55,18 @@ const Landing = () => {
     gsap.from(".text-chunk", {
       opacity: 0.3,
       rotateZ: 4,
-      y: 50,
-      duration: 0.5,
+      y: 80,
+      duration: 1,
       transformOrigin: "0% 50%", // right center
       stagger: 0.1,
     });
   }, []);
   return (
-    <div className="min-h-screen text-white bg-primaryBlack flex justify-between  flex-col relative">
+    <div className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
       <div className="absolute flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px]">
-        <img src={HalfLogo} alt="" className="w-8 invert" />
+        <img src={HalfLogo} alt="" className="w-6 invert" />
         <p
-          className="text-lg font-bold font-garet"
+          className="text-md font-bold font-garet"
           style={{
             writingMode: "sideways-lr",
           }}
@@ -74,13 +74,12 @@ const Landing = () => {
           DeCo Orginals
         </p>
       </div>
-      <div className="max-md:hidden"></div>
       <div
         id="text-content"
         className="mx-40 max-md:mx-6 text-content-head flex flex-col"
       >
         <div className="relative">
-          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[60px] font-extrabold leading-[100px] font-ilisarniq max-md:text-xl">
+          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
           {/* Hovering images */}
@@ -109,7 +108,7 @@ const Landing = () => {
               />
             </div>
           )}
-          <h1 className="text-chunk stroke-text text-[60px] z-[10] font-extrabold leading-[100px] font-ilisarniq max-md:text-xl">
+          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
         </div>
@@ -132,8 +131,9 @@ const Landing = () => {
           </span>{" "}
           to build practical LLM-powered agents
         </h1>
+        <div className="min-h-[10vh]"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk max-md:mx-6 md:w-[80%] z-[30] mt-20 font-garet text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk  max-md:mx-6 md:w-[80%] z-[30] mt-20 font-garet text-[#808080] max-md:text-xs text-justify text-[12.36px]">
           <p className="z-[30]">
             This immersive{" "}
             <span className="text-white">
@@ -152,8 +152,6 @@ const Landing = () => {
           </p>
         </div>
       </div>
-
-      <div></div>
     </div>
   );
 };

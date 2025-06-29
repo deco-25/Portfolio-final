@@ -10,9 +10,12 @@ import { preloadAssets } from "./utils";
 import CustomCursor from "./Components/CustomCursor";
 import CountdownPage from "./Components/CountdownPage";
 import DeCoLabs from "./Pages/DeCoLabs";
+import Proof1 from "./Pages/Proof1";
+import Honest from "./Pages/Honest";
+import ScrollToTop from "./Components/ScrollToTop";
 
 export default function App() {
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState(true);
   const [isCountUpFinished, setIsCountupFinished] = useState(false);
   useGSAP(() => {
     if (isCountUpFinished) {
@@ -77,6 +80,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <CustomCursor />
       {isLoading ? (
         <div className="w-screen h-screen flex flex-col gap-1 text-center items-center justify-center bg-black z-50">
@@ -107,6 +111,8 @@ export default function App() {
               <Route index element={<Homepage />} />
               <Route path="/home" element={<Homepage />} />
               <Route path="/DecoLabs" element={<DeCoLabs />} />
+              <Route path="/DecoLabs/informationSource" element={<Proof1 />} />
+              <Route path="/DecoLabs/honestlook" element={<Honest />} />
               <Route path="/counting" element={<CountdownPage />} />
             </Route>
           </Routes>

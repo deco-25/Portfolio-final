@@ -7,64 +7,59 @@ import { MdOutlinePriceCheck, MdTranslate } from "react-icons/md";
 const EventGuide = () => {
   return (
     <div className="h-screen text-white flex flex-1  gap-32 justify-center items-center">
-      <div className="flex flex-col items-center gap-8 bg-[#4e4b4b]/40 p-8 rounded-3xl">
+      <div className="flex flex-col items-center gap-16  rounded-3xl">
         <h1 className="text-4xl font-extrabold  text-white font-ilisarniq max-md:text-3xl">
-          EVENT GUIDE
+          EVENT DETAILS
         </h1>
         <div className="flex md:gap-8 max-md:gap-4 max-md:flex-col">
-          <div className="flex flex-col gap-12 justify-between">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                {" "}
-                <GiEarthAmerica size={40} className="max-md:hidden" />
-                <GiEarthAmerica size={30} className="md:hidden" />
+          <div className="flex flex-wrap gap-12 justify-between items-stretch text-white">
+            {/* Environment */}
+            <div className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]">
+              <div className="bg-gradient-to-br from-gray-600  p-3 rounded-xl flex items-center justify-center">
+                <GiEarthAmerica size={32} className="text-white" />
               </div>
               <div>
-                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                <h1 className="text-xl font-lato font-semibold mb-1">
                   Environment
                 </h1>
-                <p className="font-garet max-md:text-xs">
+                <p className="font-garet text-sm leading-snug text-gray-300">
                   Atal Incubation Centre <span className="font-lato">(</span>
                   AIC<span className="font-lato">-</span>PECF
                   <span className="font-lato">)</span>
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                {" "}
-                <MdOutlinePriceCheck
-                  size={40}
-                  className="text-white max-md:hidden"
-                />
-                <MdOutlinePriceCheck
-                  size={30}
-                  className="text-white md:hidden"
-                />
+
+            {/* Cohort Runtime */}
+            <div className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]">
+              <div className="bg-gradient-to-br from-gray-600 p-3 rounded-xl flex items-center justify-center">
+                <FaUsers size={32} className="text-white" />
               </div>
               <div>
-                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
-                  Inference Fee
+                <h1 className="text-xl font-lato font-semibold mb-1">
+                  Cohort Runtime
                 </h1>
-                <p className="font-garet">
-                  <span className="font-lato max-md:text-xs">₹1699</span>
+                <p className="font-garet text-sm leading-snug text-gray-300">
+                  6 Saturdays <span className="font-lato">|</span> 6 Epochs{" "}
+                  <span className="font-lato">|</span> 6 Milestones
+                </p>
+                <p className="text-white/50 text-xs mt-1">
+                  Aug 23, 30, Sept 06, 13, 20, 27
                 </p>
               </div>
             </div>
-          </div>
-          <div className="flex gap-12 justify-between flex-col">
-            <div className="flex items-center gap-4">
-              <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                {" "}
-                <MdTranslate size={40} className="max-md:hidden text-white" />
-                <MdTranslate size={30} className="md:hidden text-white" />
+
+            {/* Conversation */}
+            <div className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]">
+              <div className="bg-gradient-to-br from-gray-600 p-3 rounded-xl flex items-center justify-center">
+                <MdTranslate size={32} className="text-white" />
               </div>
               <div>
-                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
+                <h1 className="text-xl font-lato font-semibold mb-1">
                   Conversation
                 </h1>
-                <p className="font-garet max-md:text-xs">English</p>
-                <p className="text-white/50 max-md:text-xs">
+                <p className="font-garet text-sm text-gray-300">English</p>
+                <p className="text-white/50 text-xs mt-1">
                   <span className="font-lato">(</span>
                   But hey<span className="font-lato">-</span>we’ll switch to
                   Tamil if you need it!
@@ -72,25 +67,8 @@ const EventGuide = () => {
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-4">
-              <div className="bg-[#4e4b4b] p-2 rounded-xl">
-                {" "}
-                <FaUsers size={40} className="text-white" />
-              </div>
-              <div>
-                <h1 className="text-xl max-md:text-lg font-lato font-semibold">
-                  Cohort Runtime
-                </h1>
-                <p className="font-garet max-md:text-sm">
-                  6 Saturdays <span className="font-lato">|</span> 6 Epochs{" "}
-                  <span className="font-lato">|</span> 6 Milestones
-                </p>
-                <p className="text-white/50 max-md:text-xs">
-                  Aug 23, 30, Sept 06, 13, 20, 27
-                </p>
-              </div>
-            </div>
           </div>
+          <div className="flex gap-12 justify-between flex-col"></div>
         </div>
       </div>
     </div>
