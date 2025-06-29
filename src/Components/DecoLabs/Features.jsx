@@ -12,15 +12,15 @@ const FeaturesComponent = ({ ...props }) => {
   gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.from(`#day-text-${props.number}`,{
-      left : 200,
-      scrollTrigger : {
-        trigger : `#day-${props.number}`,
-        start : 'top bottom',
-        scrub : true,
-      }
-    })
-  },[])
+    gsap.from(`#day-text-${props.number}`, {
+      left: 200,
+      scrollTrigger: {
+        trigger: `#day-${props.number}`,
+        start: "top bottom",
+        scrub: true,
+      },
+    });
+  }, []);
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -64,13 +64,13 @@ const FeaturesComponent = ({ ...props }) => {
             </h1>
           </div>
 
-          <div className="h-full text-center pl-96 flex justify-center items-end -mb-[30px] max-md:hidden">
+          <div className="h-full text-center pl-96 flex justify-center items-end -mb-[25px] max-md:hidden">
             <h1
               id={`day-text-${props.number}`}
-              data-text={`DAY - ${props.number}`}
-              className="text-[90px] font-bold font-ilisarniq half-fill-text"
+              data-text={`What's rolling ?`}
+              className="text-[72px] font-bold font-ilisarniq half-fill-text w-full"
             >
-              <span id={`day-${props.number}`}>DAY - {props.number}</span>
+              <span id={`day-${props.number}`}>What's rolling ?</span>
             </h1>
           </div>
 
@@ -83,6 +83,7 @@ const FeaturesComponent = ({ ...props }) => {
             />
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+              <h1 className="text-xl mb-4 font-bold">{props.title}</h1>
               <p className="text-lg font-garet text-white/60 max-sm:text-xs text-justify">
                 {props.content}
               </p>
@@ -101,7 +102,7 @@ const FeaturesComponent = ({ ...props }) => {
             }}
           >
             <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-              VIEW PRODUCT
+              {props.date}
             </h1>
           </div>
           <h1
@@ -134,6 +135,7 @@ const Features = () => {
           type={ele.type}
           title={ele.title}
           content={ele.content}
+          date={ele.date}
         />
       ))}
       <div className="sticky w-fit bottom-0 left-0 bg-white text-black py-4 px-8 font-semibold font-lato z-[100]">
