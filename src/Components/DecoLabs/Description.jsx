@@ -1,6 +1,19 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/all";
 import React from "react";
-
+gsap.registerPlugin(ScrollTrigger);
 const Description = () => {
+  useGSAP(() => {
+    gsap.from("#desc-body", {
+      opacity: 0,
+      duration: 2,
+      scrollTrigger: {
+        trigger: "#desc-body",
+      }
+    });
+  }, [])
+
   return (
     <div className="min-h-screen text-white bg-primaryBlack flex md:justify-between max-md:gap-6  flex-col relative items-center">
       <div></div>
@@ -10,7 +23,7 @@ const Description = () => {
         </h1>
       </div>
       {/*<span className="text-white">scroll</span> */}
-      <div className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-[#808080] text-justify text-lg md:leading-relaxed max-md:text-xs">
+      <div id="desc-body" className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-[#808080] text-justify text-lg md:leading-relaxed max-md:text-xs">
         <p>
           As of mid<span className="font-lato">-</span>2025, over 1 billion
           people, nearly 25

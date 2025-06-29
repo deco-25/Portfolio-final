@@ -47,8 +47,8 @@ const Landing = () => {
     gsap.from('.text-chunk', {
       opacity: 0.3,
       rotateZ: 4,
-      y: 50,
-      duration: 0.5,
+      y: 80,
+      duration: 1,
       transformOrigin: '0% 50%', // right center
       stagger: 0.1
     })

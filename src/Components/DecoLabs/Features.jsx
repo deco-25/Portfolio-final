@@ -5,31 +5,49 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+gsap.registerPlugin(ScrollTrigger);
 const FeaturesComponent = ({ ...props }) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const ref = React.useRef(null);
 
-  gsap.registerPlugin(ScrollTrigger);
 
   useGSAP(() => {
-    gsap.from(`#day-text-${props.number}`,{
-      left : 200,
-      scrollTrigger : {
-        trigger : `#day-${props.number}`,
-        start : 'top bottom',
-        scrub : true,
+    gsap.from(`#day-text-${props.number}`, {
+      left: 200,
+      scrollTrigger: {
+        trigger: `#day-${props.number}`,
+        start: 'top bottom',
+        scrub: true,
       }
     })
 
-    gsap.fromTo('.circle-text',{
+    gsap.fromTo(
+      `#feature-image-${props.number}`,
+      { scale: 1 },
+      {
+        scale: 1.3,
+        scrollTrigger: {
+          trigger: `#feature-image-${props.number}`,
+          start: 'top bottom', // when top of image hits bottom of viewport
+          end: 'bottom top',   // when bottom of image hits top of viewport
+          scrub: 1, // makes it smoother (number = time in seconds to catch up)
+          markers: false, // remove in production
+          ease: "power1.out" // smoother easing
+        }
+      }
+    );
+
+
+
+    gsap.fromTo('.circle-text', {
       rotate: 0,
-    },{
+    }, {
       rotate: 360,
       duration: 4,
       repeat: -1,
       ease: "linear",
     })
-  },[])
+  }, [])
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -85,11 +103,15 @@ const FeaturesComponent = ({ ...props }) => {
 
           {/* Image Section */}
           <div className="relative bottom-0 left-0 z-20 md:aspect-[16/10] max-md:aspect-[8/16] md:h-[80%] max-md:h-[80vh] group ">
-            <img
-              src={solutionImg1}
-              alt="Solution"
-              className="w-full h-full object-cover transition duration-500"
-            />
+
+            <div className=" inset-0 w-full h-full overflow-hidden">
+              <img
+                id={`feature-image-${props.number}`}
+                src={solutionImg1}
+                alt="Solution"
+                className="w-full h-full object-cover transition"
+              />
+            </div>
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
             <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
               <p className="text-lg font-garet text-white/60 max-sm:text-xs text-justify">
@@ -102,17 +124,16 @@ const FeaturesComponent = ({ ...props }) => {
           <div
             className="absolute z-[500] bottom-20 group hover:bg-rose-500 border-rose-500 border-2 w-[150px] h-[150px] text-center flex justify-center items-center rounded-full duration-200 ease-linear transition-all"
             style={{
-              transform: `translate3d(${offset.x}px, ${
-                offset.y
-              }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
+              transform: `translate3d(${offset.x}px, ${offset.y
+                }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
               transformStyle: "preserve-3d",
               willChange: "transform",
             }}
           >
             <div className="circle-text">
-            <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-              VIEW PRODUCT
-            </h1>
+              <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
+                VIEW PRODUCT
+              </h1>
             </div>
           </div>
           <h1
