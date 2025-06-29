@@ -1,5 +1,6 @@
 import React from "react";
 import { solutionImg1 } from "../data";
+import { gemini } from "../assets";
 
 const Proof1 = () => {
   return (
@@ -11,7 +12,7 @@ const Proof1 = () => {
         </h1>
         <div className="flex  text-justify md:gap-8 max-md:gap-4 md:px-24  leading-tight text-[16px] max-md:text-xs font-garet max-md:flex-col">
           <div className="flex flex-col gap-4 md:max-w-[50%]">
-            <img src={solutionImg1} alt="" />
+            <img src={gemini} alt="" className="scale-[80%] grayscale" />
             <i className="font-light  leading-tight">
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <span className="font-lato">"</span>As of mid

@@ -1,62 +1,91 @@
 import React, { useState } from "react";
 import { joinning } from "../../data/decoOrginals";
-import { Link } from "lucide-react";
 
 const Join = () => {
   const [toggle, setToggle] = useState(0);
-  const handleClick = (index) => {
-    return setToggle(index);
-  };
+  const handleClick = (index) => setToggle(index);
 
   return (
-    <div className="min-h-screen text-white flex justify-center items-center w-screen py-[20vh] md:py-[50vh]">
+    <section
+      id="join-cohort"
+      className="min-h-screen text-white flex justify-center items-center w-screen py-[20vh] md:py-[50vh]"
+      aria-labelledby="join-heading"
+    >
       <div className="flex flex-col gap-8 justify-center items-start w-[80%] max-md:w-[90%]">
-        <h1 className="text-3xl font-bold font-aboreto max-md:px-6 max-md:text-lg">
-          You've come this far for a reason. Take the next step.
-          <br className="md:hidden" /> Join the cohort.
-        </h1>
+        <header>
+          <h2
+            id="join-heading"
+            className="text-3xl font-bold font-aboreto max-md:px-6 max-md:text-lg"
+          >
+            You've come this far for a reason. Take the next step.
+            <br className="md:hidden" /> Join the cohort.
+          </h2>
+        </header>
 
-        <div className="flex flex-col justify-center items-center p-5 md:hidden">
+        {/* Mobile Accordion */}
+        <section className="flex flex-col justify-center items-center p-5 md:hidden">
           <div>
             {joinning.map((ele, ind) => {
               const isOpen = toggle === ind;
               return (
-                <div key={ind} className="border-b-2 border-gray-500 flex flex-col w-full overflow-hidden">
-                  <div
+                <article
+                  key={ind}
+                  className="border-b-2 border-gray-500 flex flex-col w-full overflow-hidden"
+                  aria-labelledby={`mobile-option-${ind}`}
+                >
+                  <button
                     onClick={() => handleClick(ind)}
                     className="cursor-pointer flex justify-between p-4 w-full"
+                    aria-expanded={isOpen}
+                    aria-controls={`mobile-content-${ind}`}
                   >
-                    <h1 className="text-xl font-semibold">{ele.title}</h1>
-                    <h1>{isOpen ? "-" : "+"}</h1>
-                  </div>
+                    <h3
+                      id={`mobile-option-${ind}`}
+                      className="text-xl font-semibold"
+                    >
+                      {ele.title}
+                    </h3>
+                    <span>{isOpen ? "−" : "+"}</span>
+                  </button>
 
-                  {/* Animated section */}
                   <div
-                    className={`transition-max-height duration-500 ease-in-out overflow-hidden ${isOpen ? "max-h-[500px]" : "max-h-0"
-                      }`}
+                    id={`mobile-content-${ind}`}
+                    className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
+                      isOpen ? "max-h-[500px]" : "max-h-0"
+                    }`}
+                    role="region"
+                    aria-labelledby={`mobile-option-${ind}`}
                   >
-                    <h1 className="p-4 text-gray-400">{ele.content}</h1>
+                    <p className="p-4 text-gray-400">{ele.content}</p>
 
                     <div className="w-full flex justify-between p-5">
-                      <button className="bg-[#1a1a1a] border border-white/10 p-2 rounded-lg">
+                      <span className="bg-[#1a1a1a] border border-white/10 p-2 rounded-lg">
                         ₹{ele.price}
-                      </button>
-                      <a href={ele.link} target="_blank" rel="noopener noreferrer">
+                      </span>
+                      <a
+                        href={ele.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Apply for ${ele.title}`}
+                      >
                         <button className="bg-white text-black p-2 rounded-lg">
                           Apply Now
                         </button>
                       </a>
                     </div>
                   </div>
-                </div>
+                </article>
               );
             })}
           </div>
-        </div>
+        </section>
 
-
-        <div className="flex flex-col gap-4 justify-center items-center my-4 max-md:hidden">
-          <div className="font-garet border border-white/10 p-6 rounded-2xl bg-gradient-to-br from-[#1e1e1e] to-[#2c2c2c] space-y-4 shadow-2xl">
+        {/* Desktop Grid */}
+        <section
+          className="flex flex-col gap-4 justify-center items-center my-4 max-md:hidden"
+          aria-label="Join options grid"
+        >
+          <div className="font-garet border border-white/10 p-6 rounded-2xl bg-gradient-to-br from-[#1e1e1e] to-[#2c2c2c] space-y-4 shadow-2xl w-full">
             {/* Header Row */}
             <div className="flex justify-between text-lg md:text-2xl text-center font-semibold gap-6">
               {joinning.map((label, index) => (
@@ -64,7 +93,7 @@ const Join = () => {
                   key={index}
                   className="w-1/4 flex justify-center items-center bg-[#3a3a3a] text-white border border-white/10 rounded-xl py-3 px-2 shadow-md hover:shadow-lg transition duration-300"
                 >
-                  {label.title}
+                  <h3 className="text-lg font-semibold">{label.title}</h3>
                 </div>
               ))}
             </div>
@@ -72,20 +101,25 @@ const Join = () => {
             {/* Description Row */}
             <div className="flex justify-between text-sm text-white/90 text-justify gap-6">
               {joinning.map((ele, index) => (
-                <div
+                <article
                   key={index}
-                  className="w-1/4 border flex flex-col justify-between gap-4
-                   border-white/10 rounded-xl p-4 bg-[#1a1a1a]  transition duration-300"
+                  className="w-1/4 border flex flex-col justify-between gap-4 border-white/10 rounded-xl p-4 bg-[#1a1a1a] transition duration-300"
+                  aria-labelledby={`option-${index}`}
                 >
-                  {ele.content}
-                  <div className=" text-black  flex w-full justify-end items-end">
-                    <a href={ele.link} target="_blank">
-                      <button className="bg-white p-2 rounded-xl">
+                  <p id={`option-${index}`}>{ele.content}</p>
+                  <div className="flex w-full justify-end items-end">
+                    <a
+                      href={ele.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`Apply now for ${ele.title}`}
+                    >
+                      <button className="bg-white text-black p-2 rounded-xl">
                         Apply Now
                       </button>
                     </a>
                   </div>
-                </div>
+                </article>
               ))}
             </div>
 
@@ -101,13 +135,16 @@ const Join = () => {
               ))}
             </div>
           </div>
-        </div>
-        <p className="text-lg pt-8 font-garet max-md:text-xs max-md:px-6">
-          We keep the cohort small so everyone gets the support they need. Lock
-          in your spot before it’s gone.
-        </p>
+        </section>
+
+        <footer>
+          <p className="text-lg pt-8 font-garet max-md:text-xs max-md:px-6">
+            We keep the cohort small so everyone gets the support they need.
+            Lock in your spot before it’s gone.
+          </p>
+        </footer>
       </div>
-    </div>
+    </section>
   );
 };
 

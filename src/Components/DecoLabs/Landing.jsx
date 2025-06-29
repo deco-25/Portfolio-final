@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HalfLogo } from "../../assets";
+import { HalfLogo, vid1, vid2 } from "../../assets";
 import { solutionImg1 } from "../../data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -62,24 +62,25 @@ const Landing = () => {
     });
   }, []);
   return (
-    <div id="landing-section" className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
-      <div className="absolute hidden md:flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px]">
+    <div className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
+      <div className="absolute flex md:flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 md:top-[50px] max-md:top-0">
         <img src={HalfLogo} alt="" className="w-6 invert" />
         <p
-          className="text-md font-bold font-garet"
+          className="text-md font-bold font-garet max-md:hidden"
           style={{
             writingMode: "sideways-lr",
           }}
         >
           DeCo Orginals
         </p>
+        <p className="text-md font-bold font-garet md:hidden">DeCo Orginals</p>
       </div>
       <div
         id="text-content"
         className="mx-40 max-md:mx-6 text-content-head flex flex-col"
       >
         <div className="relative">
-          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-4xl">
+          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
           {/* Hovering images */}
@@ -89,7 +90,7 @@ const Landing = () => {
               className="absolute top-0 z-[20] -right-40 flex items-center justify-center"
             >
               <img
-                src={solutionImg1}
+                src={vid1}
                 alt="Solution"
                 className="w-[800px] aspect-[5/3] object-cover transition duration-500"
               />
@@ -102,13 +103,13 @@ const Landing = () => {
               className="absolute top-0 z-[20] right-20 flex items-center justify-center"
             >
               <img
-                src={solutionImg1}
+                src={vid2}
                 alt="Solution"
                 className="w-[800px] aspect-[5/3] object-cover transition duration-500"
               />
             </div>
           )}
-          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-4xl">
+          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
         </div>
@@ -133,7 +134,7 @@ const Landing = () => {
         </h1>
         <div className="min-h-[10vh]"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk  md:w-[80%] z-[30] mt-20 font-garet tracking-wider text-primaryGray max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk   md:w-[80%] z-[30] mt-20 font-garet text-[#808080] max-md:text-xs text-justify text-[12.36px]">
           <p className="z-[30]">
             This immersive{" "}
             <span className="text-white">
@@ -148,7 +149,7 @@ const Landing = () => {
             you with the skills to design agentic. AI systems that reason,
             adapt, and act in real
             <span className="font-lato">-</span>world environments through hands
-            <span className="font-lato">-</span>on projects and practical tools.
+            <span className="font-lato">-</span>on projects and practical tools
           </p>
         </div>
       </div>

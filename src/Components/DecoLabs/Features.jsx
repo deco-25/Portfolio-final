@@ -4,6 +4,7 @@ import { epochs } from "../../data/decoOrginals";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
+import { sampleImg } from "../../assets";
 
 gsap.registerPlugin(ScrollTrigger);
 const FeaturesComponent = ({ ...props }) => {
@@ -82,13 +83,13 @@ const FeaturesComponent = ({ ...props }) => {
         <div className="h-screen relative flex flex-col justify-between items-start w-[90%]">
           {/* OPOINT Text */}
 
-          <div className="h-full text-center flex justify-center items-end md:hidden px-6 -mb-20">
+          <div className="h-full text-center flex justify-center items-end md:hidden px-6 -mb-32">
             <h1
-              data-text={props.type}
+              data-text={`DAY - ${props.number}`}
               className="text-[50px] font-bold font-ilisarniq half-fill-text"
               style={{ writingMode: "sideways-lr" }}
             >
-              {props.type}
+              DAY - {`${props.number}`}
             </h1>
           </div>
 
@@ -107,14 +108,16 @@ const FeaturesComponent = ({ ...props }) => {
             <div className=" inset-0 w-full h-full overflow-hidden">
               <img
                 id={`feature-image-${props.number}`}
-                src={solutionImg1}
+                src={props.image}
                 alt="Solution"
                 className="w-full h-full object-cover transition"
               />
             </div>
             <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
-              <h1 className="text-3xl mb-4 font-bold">{props.title}</h1>
+            <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 md:px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+              <h1 className="text-3xl mb-4 font-bold max-md:text-xl">
+                {props.title}
+              </h1>
               <p className="text-lg font-garet text-white/60 max-sm:text-xs text-justify">
                 {props.content}
               </p>
@@ -133,9 +136,9 @@ const FeaturesComponent = ({ ...props }) => {
             }}
           >
             <div className="circle-text">
-            <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-              <span>{props.date}</span>
-            </h1>
+              <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
+                <span>{props.date}</span>
+              </h1>
             </div>
           </div>
           <h1
@@ -169,6 +172,7 @@ const Features = () => {
           title={ele.title}
           content={ele.content}
           date={ele.date}
+          image={ele.image}
         />
       ))}
       <div className="sticky w-fit bottom-0 left-0 bg-white text-black px-4 py-2 md:py-4 md:px-8 font-semibold font-lato z-[100]">
