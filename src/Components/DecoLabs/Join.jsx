@@ -9,7 +9,7 @@ const Join = () => {
   };
 
   return (
-    <div className="min-h-screen text-white flex justify-center items-center w-screen py-[50vh]">
+    <div className="min-h-screen text-white flex justify-center items-center w-screen py-[20vh] md:py-[50vh]">
       <div className="flex flex-col gap-8 justify-center items-start w-[80%] max-md:w-[90%]">
         <h1 className="text-3xl font-bold font-aboreto max-md:px-6 max-md:text-lg">
           You've come this far for a reason. Take the next step.
@@ -19,22 +19,21 @@ const Join = () => {
         <div className="flex flex-col justify-center items-center p-5 md:hidden">
           <div>
             {joinning.map((ele, ind) => {
+              const isOpen = toggle === ind;
               return (
-                <div className="border-b-2 border-gray-500 flex flex-col  w-full">
+                <div key={ind} className="border-b-2 border-gray-500 flex flex-col w-full overflow-hidden">
                   <div
                     onClick={() => handleClick(ind)}
                     className="cursor-pointer flex justify-between p-4 w-full"
                   >
                     <h1 className="text-xl font-semibold">{ele.title}</h1>
-                    <h1>{toggle == ind ? "-" : "+"}</h1>
+                    <h1>{isOpen ? "-" : "+"}</h1>
                   </div>
+
+                  {/* Animated section */}
                   <div
-                    id="description"
-                    className={`${
-                      ind == toggle
-                        ? "h-auto max-h-[9999px] transition-all"
-                        : "max-h-0 overflow-hidden transition-all hidden"
-                    } duration-500 ease-linear overflow-hidden w-full`}
+                    className={`transition-max-height duration-500 ease-in-out overflow-hidden ${isOpen ? "max-h-[500px]" : "max-h-0"
+                      }`}
                   >
                     <h1 className="p-4 text-gray-400">{ele.content}</h1>
 
@@ -42,7 +41,7 @@ const Join = () => {
                       <button className="bg-[#1a1a1a] border border-white/10 p-2 rounded-lg">
                         ₹{ele.price}
                       </button>
-                      <a href={ele.link} target="_blank">
+                      <a href={ele.link} target="_blank" rel="noopener noreferrer">
                         <button className="bg-white text-black p-2 rounded-lg">
                           Apply Now
                         </button>
@@ -54,6 +53,7 @@ const Join = () => {
             })}
           </div>
         </div>
+
 
         <div className="flex flex-col gap-4 justify-center items-center my-4 max-md:hidden">
           <div className="font-garet border border-white/10 p-6 rounded-2xl bg-gradient-to-br from-[#1e1e1e] to-[#2c2c2c] space-y-4 shadow-2xl">

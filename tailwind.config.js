@@ -13,6 +13,9 @@ export default {
       backgroundColor: {
         primaryBlack: "#0d0d0d",
       },
+      textColor: {
+        primaryGray: "#9d9d9d",
+      }
     },
   },
   plugins: [],

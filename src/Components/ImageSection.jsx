@@ -135,7 +135,7 @@ const ImageSection = () => {
             <div
               id={`slide-${index}`}
               key={index}
-              className="min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex flex-col justify-center mb-12 md:mb-32 overflow-x-hidden"
+              className="min-h-[60vh] sm:min-h-[70vh] md:min-h-screen flex flex-col justify-center mb-12 md:mb-32 overflow-y-hidden md:overflow-y-auto overflow-x-hidden"
             >
               <DistortedImage isMobile={isMobile} image={section.image} />
             </div>

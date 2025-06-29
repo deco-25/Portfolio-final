@@ -6,7 +6,7 @@ import { MdOutlinePriceCheck, MdTranslate } from "react-icons/md";
 
 const EventGuide = () => {
   return (
-    <div className="h-screen text-white flex flex-1  gap-32 justify-center items-center">
+    <div className="md:h-screen text-white flex flex-1 px-8  gap-32 justify-center items-center">
       <div className="flex flex-col items-center gap-16  rounded-3xl">
         <h1 className="text-4xl font-extrabold  text-white font-ilisarniq max-md:text-3xl">
           EVENT DETAILS

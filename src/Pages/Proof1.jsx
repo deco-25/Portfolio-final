@@ -3,7 +3,7 @@ import { solutionImg1 } from "../data";
 
 const Proof1 = () => {
   return (
-    <div className="min-h-screen text-[#979696] flex justify-center items-center md:py-20 max-md:py-8">
+    <div className="min-h-screen text-primaryGray flex justify-center items-center md:py-20 max-md:py-8">
       <div className="flex flex-col justify-center items-center gap-8 max-md:px-8">
         <h1 className="md:text-4xl font-aboreto font-bold text-white max-md:text-[15px] max-md:text-center">
           The information is sourced from Gemini’s <br className="md:hidden" />

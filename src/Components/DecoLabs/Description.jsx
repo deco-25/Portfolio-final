@@ -26,7 +26,7 @@ const Description = () => {
       {/*<span className="text-white">scroll</span> */}
       <div
         id="desc-body"
-        className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-[#808080] text-justify text-lg md:leading-relaxed max-md:text-xs"
+        className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-primaryGray text-justify text-lg md:leading-relaxed max-md:text-xs"
       >
         <p>
           As of mid<span className="font-lato">-</span>2025, over 1 billion
@@ -70,10 +70,11 @@ const Description = () => {
           understanding of how these systems function. Of course no
           <span className="font-lato">-</span>you won’t become a{" "}
           <Link
-            className="font-bold text-white/70 cursor-pointer"
+            className="font-bold text-white/70 cursor-pointer relative group"
             to="/DecoLabs/honestlook"
           >
             prodigy overnight<span className="font-lato">**</span>
+            <span className="duration-300 group-hover:opacity-100 opacity-0 min-w-[90%] absolute -bottom-[2px] left-0 bg-white min-h-[1px]"></span>
           </Link>
           , but you’ll be well on your way to joining that 15 percent who truly
           get it.{" "}

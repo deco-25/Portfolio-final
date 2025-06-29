@@ -82,7 +82,7 @@ const FeaturesComponent = ({ ...props }) => {
         <div className="h-screen relative flex flex-col justify-between items-start w-[90%]">
           {/* OPOINT Text */}
 
-          <div className="h-full text-center flex justify-center items-end md:hidden px-6 -mb-40">
+          <div className="h-full text-center flex justify-center items-end md:hidden px-6 -mb-20">
             <h1
               data-text={props.type}
               className="text-[50px] font-bold font-ilisarniq half-fill-text"
@@ -132,9 +132,11 @@ const FeaturesComponent = ({ ...props }) => {
               willChange: "transform",
             }}
           >
+            <div className="circle-text">
             <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-              {props.date}
+              <span>{props.date}</span>
             </h1>
+            </div>
           </div>
           <h1
             className="text-xl text-[#808080] font-bold font-garet"
@@ -169,7 +171,7 @@ const Features = () => {
           date={ele.date}
         />
       ))}
-      <div className="sticky w-fit bottom-0 left-0 bg-white text-black py-4 px-8 font-semibold font-lato z-[100]">
+      <div className="sticky w-fit bottom-0 left-0 bg-white text-black px-4 py-2 md:py-4 md:px-8 font-semibold font-lato z-[100]">
         <h1 className="text-xl">CURRICULUM</h1>
       </div>
     </div>

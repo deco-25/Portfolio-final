@@ -62,8 +62,8 @@ const Landing = () => {
     });
   }, []);
   return (
-    <div className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
-      <div className="absolute flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px]">
+    <div id="landing-section" className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
+      <div className="absolute hidden md:flex flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 top-[50px]">
         <img src={HalfLogo} alt="" className="w-6 invert" />
         <p
           className="text-md font-bold font-garet"
@@ -79,7 +79,7 @@ const Landing = () => {
         className="mx-40 max-md:mx-6 text-content-head flex flex-col"
       >
         <div className="relative">
-          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
+          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-4xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
           {/* Hovering images */}
@@ -108,7 +108,7 @@ const Landing = () => {
               />
             </div>
           )}
-          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
+          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-4xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
         </div>
@@ -133,7 +133,7 @@ const Landing = () => {
         </h1>
         <div className="min-h-[10vh]"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk  max-md:mx-6 md:w-[80%] z-[30] mt-20 font-garet text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk  md:w-[80%] z-[30] mt-20 font-garet tracking-wider text-primaryGray max-md:text-xs text-justify text-[12.36px]">
           <p className="z-[30]">
             This immersive{" "}
             <span className="text-white">
@@ -148,7 +148,7 @@ const Landing = () => {
             you with the skills to design agentic. AI systems that reason,
             adapt, and act in real
             <span className="font-lato">-</span>world environments through hands
-            <span className="font-lato">-</span>on projects and practical tools
+            <span className="font-lato">-</span>on projects and practical tools.
           </p>
         </div>
       </div>

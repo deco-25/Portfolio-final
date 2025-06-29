@@ -175,6 +175,13 @@ const DistortedImage = ({ image, isMobile }) => {
   }, [animate]);
 
   useEffect(() => {
+    if (isMobile) {
+    // Just in case a canvas was ever mounted
+    const canvas = containerRef.current?.querySelector("canvas");
+    if (canvas) canvas.remove();
+    return;
+  }
+
     initCurtains();
     lastScroll.current = window.scrollY;
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -202,7 +209,7 @@ const DistortedImage = ({ image, isMobile }) => {
         curtainsRef.current = null;
       }
     };
-  }, [initCurtains, handleScroll, manageAnimation]);
+  }, [initCurtains, handleScroll, manageAnimation, isMobile]);
 
   // GSAP Scale Animation
   useGSAP(() => {
@@ -210,7 +217,7 @@ const DistortedImage = ({ image, isMobile }) => {
       containerRef.current,
       { scale: 0.8 },
       {
-        scale: isMobile ? 1.6 :  1.4,
+        scale: isMobile ? 1.2 : 1.4,
         scrollTrigger: {
           trigger: containerRef.current,
           start: "top bottom",
@@ -224,55 +231,67 @@ const DistortedImage = ({ image, isMobile }) => {
 
   return (
     <div className="relative py-10 md:py-[250px] h-full max-w-[88vw] overflow-hidden left-8 top-5 md:top-0 -rotate-12 md:left-20">
-    <div
-      ref={containerRef}
-      style={{
-        margin: "0 auto",
-        position: "relative",
-        zIndex: 20,
-        transform: "translateZ(0)",
-        perspective: "1200px",
-        transformStyle: "preserve-3d",
-      }}
-      className="h-[40vh] md:h-[50vh] mt-10 md:mt-0 md:w-[60vw] flex items-center justify-center"
-    >
-      <img
-        src={image}
-        alt="Parabolic distortion effect"
-        crossOrigin="anonymous"
-        data-sampler="uSampler"
-        id="distorted-image"
-        className="opacity-0 absolute w-full min-h-[40vh] min-w-[100%] md:min-w-[140vw] object-center object-cover"
-      />
-
-      {/* CONNECT label that follows mouse */}
       <div
-        ref={connectLabelRef}
-        className="absolute z-60 pointer-events-none bg-black bg-opacity-75 px-3 py-1 rounded-full"
+        ref={containerRef}
         style={{
-          position: "absolute",
-          left: `${mousePosRef.current.x + 10}px`,
-          top: `${mousePosRef.current.y}px`,
-          opacity: 0,
-          transform: "translate(10px, -50%)",
+          margin: "0 auto",
+          position: "relative",
+          zIndex: 20,
+          transform: "translateZ(0)",
+          perspective: "1200px",
+          transformStyle: "preserve-3d",
         }}
+        className={`h-[40vh] md:h-[50vh] mt-10 md:mt-0 md:w-[60vw] flex items-center justify-center ${isMobile ? "bg-primaryBlack" : ""
+          }`}
       >
-        <span className="text-white font-semibold text-sm whitespace-nowrap">
-          CONNECT
-        </span>
-      </div>
 
-      {/* Transparent hover capture layer */}
-      <a
-        className="absolute inset-0 z-50 cursor-pointer"
-        style={{
-          pointerEvents: "auto",
-          backgroundColor: "transparent",
-        }}
-        href="#connect"
-      />
+        {!isMobile ? (
+          <img
+            src={image}
+            alt="Distorted"
+            crossOrigin="anonymous"
+            data-sampler="uSampler"
+            id="distorted-image"
+            className="absolute w-full min-h-[500px] md:min-h-[40vh] min-w-[100%] md:min-w-[140vw] object-center object-cover opacity-0"
+          />
+        ) : (
+          <img
+            src={image}
+            alt="Mobile Static"
+            className="absolute w-full h-[50%] object-cover z-10 "
+          />
+        )}
+
+
+
+        {/* CONNECT label that follows mouse */}
+        <div
+          ref={connectLabelRef}
+          className="absolute z-60 pointer-events-none bg-black bg-opacity-75 px-3 py-1 rounded-full"
+          style={{
+            position: "absolute",
+            left: `${mousePosRef.current.x + 10}px`,
+            top: `${mousePosRef.current.y}px`,
+            opacity: 0,
+            transform: "translate(10px, -50%)",
+          }}
+        >
+          <span className="text-white font-semibold text-sm whitespace-nowrap">
+            CONNECT
+          </span>
+        </div>
+
+        {/* Transparent hover capture layer */}
+        <a
+          className="absolute inset-0 z-50 cursor-pointer"
+          style={{
+            pointerEvents: "auto",
+            backgroundColor: "transparent",
+          }}
+          href="#connect"
+        />
+      </div>
     </div>
-  </div>
   );
 };
 

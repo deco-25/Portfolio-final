@@ -13,7 +13,7 @@ const Honest = () => {
           <h1 className="font-aboreto text-2xl font-bold max-md:text-xl text-center">
             An Honest Look at What This Bootcamp Offers!
           </h1>
-          <p className="font-garet text-justify leading-relaxed text-lg text-[#808080] max-md:text-sm">
+          <p className="font-garet text-justify leading-relaxed text-lg text-primaryGray max-md:text-sm">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This bootcamp is
             designed to give you a strong
             <span className="font-lato">,</span> practical understanding of how

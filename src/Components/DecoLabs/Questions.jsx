@@ -18,6 +18,11 @@ import emailjs from "@emailjs/browser";
 import { meta } from "@eslint/js";
 
 const Questions = () => {
+
+  const handleBackToTop = () => {
+    const top = document.getElementById('landing-section')
+    top.scrollIntoView({behavior: 'smooth' });
+  };
   return (
     <div className="text-white flex flex-col justify-center items-center">
       <div className="md:w-[80%] max-md:w-[90%]">
@@ -76,7 +81,7 @@ const Questions = () => {
             <TextHoverEffect text="DeCo" />
           </div>
           <div className="flex w-full font-garet md:justify-between py-5 items-center max-md:justify-around">
-            <div className="flex gap-4 items-center max-md:hidden">
+            <div onClick={handleBackToTop}  className="flex gap-4 items-center max-md:hidden">
               <button className="cursor-pointer">
                 <div className="border hover:border-slate-500 rounded-full">
                   <ChevronUp />
