@@ -26,22 +26,22 @@ const Description = () => {
       {/*<span className="text-white">scroll</span> */}
       <div
         id="desc-body"
-        className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-[#808080] text-justify text-lg md:leading-relaxed max-md:text-xs"
+        className="md:px-44 max-md:px-6 w-[100%] pb-20 font-garet text-[#dbdbdb] md:text-[#808080] text-justify text-lg md:leading-relaxed max-md:text-xs"
       >
         <p>
           As of mid<span className="font-lato">-</span>2025, over 1 billion
           people, nearly{" "}
           <Link
-            className="font-bold text-white/70 cursor-pointer hover:underline"
-            to="/DecoLabs/informationSource"
+            className="font-bold text-white cursor-pointer hover:underline"
+            to="/originals/llm-beyond-the-prompt/informationSource"
           >
             25
             <span className="font-lato">%*</span>
           </Link>{" "}
           Internet users use LLM tools like ChatGPT and Gemini. But only about{" "}
           <Link
-            className="font-bold text-white/70 hover:underline cursor-pointer"
-            to="/DecoLabs/informationSource"
+            className="font-bold text-white hover:underline cursor-pointer"
+            to="/originals/llm-beyond-the-prompt/informationSource"
           >
             15
             <span className="font-lato">%*</span>
@@ -70,14 +70,14 @@ const Description = () => {
           understanding of how these systems function. Of course no
           <span className="font-lato">-</span>you won’t become a{" "}
           <Link
-            className="font-bold text-white/70 cursor-pointer hover:underline"
-            to="/DecoLabs/honestlook"
+            className="font-bold text-white cursor-pointer hover:underline"
+            to="/originals/llm-beyond-the-prompt/honestlook"
           >
             prodigy overnight<span className="font-lato">**</span>
           </Link>
           , but you’ll be well on your way to joining that 15 percent who truly
           get it.{" "}
-          <span className="text-white/70">
+          <span className="text-white">
             You don’t need a deep background to get started. With Python skills,
             high school math, and a curious mindset, we’ll help you go from
             knowing to building

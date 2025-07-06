@@ -1,9 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { joinning } from "../../data/decoOrginals";
 
 const Join = () => {
-  const [toggle, setToggle] = useState(0);
-  const handleClick = (index) => setToggle(index);
+  const [toggle, setToggle] = useState(null);
+  const contentRefs = useRef([]);
+
+  const handleClick = (index) => {
+    setToggle(prev => (prev === index ? null : index));
+  };
+
+
 
   return (
     <section
@@ -50,14 +56,17 @@ const Join = () => {
 
                   <div
                     id={`mobile-content-${ind}`}
-                    className={`transition-max-height duration-500 ease-in-out overflow-hidden ${
-                      isOpen ? "max-h-[500px]" : "max-h-0"
-                    }`}
+                    ref={(el) => (contentRefs.current[ind] = el)}
+                    className="overflow-hidden transition-all duration-500 ease-in-out"
+                    style={{
+                      height: isOpen
+                        ? `${contentRefs.current[ind]?.scrollHeight}px`
+                        : "0px",
+                    }}
                     role="region"
                     aria-labelledby={`mobile-option-${ind}`}
                   >
                     <p className="p-4 text-gray-400">{ele.content}</p>
-
                     <div className="w-full flex justify-between p-5">
                       <span className="bg-[#1a1a1a] border border-white/10 p-2 rounded-lg">
                         ₹{ele.price}
@@ -68,12 +77,13 @@ const Join = () => {
                         rel="noopener noreferrer"
                         aria-label={`Apply for ${ele.title}`}
                       >
-                        <button className="bg-white text-black p-2 rounded-lg">
+                        <button className="bg-white text-black p-2 rounded-xl hover:border-white hover:border-2 hover:bg-transparent duration-200 ease-linear transition-all hover:text-white border-black border-2">
                           Apply Now
                         </button>
                       </a>
                     </div>
                   </div>
+
                 </article>
               );
             })}
@@ -113,8 +123,9 @@ const Join = () => {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Apply now for ${ele.title}`}
+                      className="cursor-pointer"
                     >
-                      <button className="bg-white text-black p-2 rounded-xl hover:border-white hover:border-2 hover:bg-black duration-200 ease-linear transition-all hover:text-white border-black border-2">
+                      <button className="bg-white text-black p-2 rounded-xl hover:border-white hover:border-2 hover:bg-transparent duration-200 ease-linear transition-all hover:text-white border-black border-2">
                         Apply Now
                       </button>
                     </a>

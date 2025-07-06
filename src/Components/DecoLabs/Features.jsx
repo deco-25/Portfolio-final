@@ -10,6 +10,8 @@ gsap.registerPlugin(ScrollTrigger);
 const FeaturesComponent = ({ ...props }) => {
   const [offset, setOffset] = useState({ x: 0, y: 0 });
   const ref = React.useRef(null);
+  const containerRef = React.useRef(null);
+
 
   useGSAP(() => {
     gsap.from(`#day-text-${props.number}`, {
@@ -28,15 +30,15 @@ const FeaturesComponent = ({ ...props }) => {
         scale: 1.3,
         scrollTrigger: {
           trigger: `#feature-image-${props.number}`,
-          start: "top bottom", // when top of image hits bottom of viewport
-          end: "bottom top", // when bottom of image hits top of viewport
-          scrub: 1, // makes it smoother (number = time in seconds to catch up)
-          markers: false, // remove in production
-          ease: "power1.out", // smoother easing
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+          ease: "power1.out",
         },
       }
     );
 
+    // Rotate circle text
     gsap.fromTo(
       ".circle-text",
       {
@@ -49,7 +51,31 @@ const FeaturesComponent = ({ ...props }) => {
         ease: "linear",
       }
     );
+
+    // Mobile view fade-in for title/content
+    if (window.innerWidth < 768) {
+      const selector = `.mobile-fade-content-${props.number}`;
+      const overlaySelector = `.mobile-gradient-overlay-${props.number}`;
+
+      gsap.fromTo(
+        [selector, overlaySelector],
+        { autoAlpha: 0, y: 50 },
+        {
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.8,
+          ease: "power2.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "center center",
+            end: "bottom 40%",
+            toggleActions: "play reverse play reverse",
+          },
+        }
+      );
+    }
   }, []);
+
 
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
@@ -74,22 +100,26 @@ const FeaturesComponent = ({ ...props }) => {
 
   return (
     <div
-      ref={ref}
+      ref={(el) => {
+        ref.current = el;
+        containerRef.current = el;
+      }}
       onMouseMove={handleMouseMove}
       onMouseLeave={resetOffset}
       className="min-h-screen flex items-center overflow-hidden"
     >
+
       <div className="flex h-screen items-center gap-8 w-[80vw]">
         <div className="h-screen relative flex flex-col justify-between items-start w-[90%]">
           {/* OPOINT Text */}
 
           <div className="h-full text-center flex justify-center items-end md:hidden px-6 -mb-32">
             <h1
-              data-text={`DAY - ${props.number}`}
+              data-text={`DAY ${props.number}`}
               className="text-[50px] font-bold font-ilisarniq half-fill-text"
               style={{ writingMode: "sideways-lr" }}
             >
-              DAY - {`${props.number}`}
+              DAY {`${props.number}`}
             </h1>
           </div>
 
@@ -113,8 +143,11 @@ const FeaturesComponent = ({ ...props }) => {
                 className="w-full h-full object-cover transition"
               />
             </div>
-            <div className="absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 md:px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out">
+
+            <div className={`mobile-gradient-overlay-${props.number} absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-500`}></div>
+
+            {/* Desktop (hover-based) */}
+            <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 md:px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out max-md:hidden">
               <h1 className="text-3xl mb-4 font-bold max-md:text-xl">
                 {props.title}
               </h1>
@@ -122,15 +155,28 @@ const FeaturesComponent = ({ ...props }) => {
                 {props.content}
               </p>
             </div>
+
+            {/* Mobile (scroll-based fade-in) */}
+            <div
+              className={`mobile-fade-content-${props.number} absolute bottom-10 left-0 w-full text-white p-4 md:px-12 z-20 opacity-0 md:hidden`}
+            >
+              <h1 className="text-2xl mb-2 font-bold text-white">
+                {props.title}
+              </h1>
+              <p className="text-sm font-garet text-white/60 text-justify">
+                {props.content}
+              </p>
+            </div>
+
+
           </div>
         </div>
         <div className="relative h-screen flex justify-center items-center">
           <div
             className="absolute z-[500] bottom-20 group hover:bg-rose-500 border-rose-500 border-2 w-[150px] h-[150px] text-center flex justify-center items-center rounded-full duration-200 ease-linear transition-all"
             style={{
-              transform: `translate3d(${offset.x}px, ${
-                offset.y
-              }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
+              transform: `translate3d(${offset.x}px, ${offset.y
+                }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
               transformStyle: "preserve-3d",
               willChange: "transform",
             }}

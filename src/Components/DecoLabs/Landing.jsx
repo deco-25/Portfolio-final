@@ -62,7 +62,7 @@ const Landing = () => {
     });
   }, []);
   return (
-    <div className="min-h-screen text-white bg-primaryBlack flex md:justify-evenly max-md:justify-between max-md:h-screen max-md:py-20  flex-col relative">
+    <div id="landing-section" className="min-h-screen text-white bg-primaryBlack flex md:justify-evenly max-md:justify-between max-md:h-screen max-md:py-20  flex-col relative">
       <div className="absolute top-0 left-0 flex p-5">
         <img src={DeCoLogo} alt="" className="w-[80px] invert" />
       </div>
@@ -83,9 +83,17 @@ const Landing = () => {
         className="mx-40 max-md:mx-6 text-content-head flex flex-col"
       >
         <div className="relative">
-          <h1 className="text-chunk absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
-            LARGE LANGUAGE MODELS: BEYOND THE PROMPT
+          <h1 className="text-chunk hidden md:block absolute inset-0 z-[30] custom-stroke text-[65px] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
+             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
+
+          {/* for mobile */}
+          <div className="mt-12 pl-2 text-chunk md:hidden absolute inset-0 z-[30] custom-stroke text-3xl font-extrabold leading-[70px] font-ilisarniq ">
+            <h1 className="text-5xl tracking-wider">LARGE</h1>
+            <h1 className="text-5xl mt-1 tracking-wider">LANGUAGE</h1>
+            <h1 className="text-5xl mt-1 tracking-wider">MODELS: </h1>
+            <h1 className="text-3xl mt-4">BEYOND THE PROMPT</h1>  
+          </div>
           {/* Hovering images */}
           {hovering === "Cohort-based" && (
             <div
@@ -112,12 +120,20 @@ const Landing = () => {
               />
             </div>
           )}
-          <h1 className="text-chunk stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
+          <h1 className="text-chunk hidden md:block stroke-text text-[65px] z-[10] font-extrabold leading-[90px] font-ilisarniq max-md:text-xl">
             LARGE LANGUAGE MODELS: BEYOND THE PROMPT
           </h1>
+
+          {/* for mobile */}
+          <div className="mt-12 pl-2 text-chunk md:hidden stroke-text z-[10] font-extrabold leading-[70px] font-ilisarniq">
+            <h1 className="text-5xl tracking-wider">LARGE</h1>
+            <h1 className="text-5xl mt-1 tracking-wider">LANGUAGE</h1>
+            <h1 className="text-5xl mt-1 tracking-wider">MODELS: </h1>
+            <h1 className="text-3xl mt-4">BEYOND THE PROMPT</h1>  
+          </div>
         </div>
 
-        <h1 className="text-chunk pt-8 text-xl font-medium font-lato max-md:text-sm z-10">
+        <h1 className="text-chunk pl-2 md:pl-0 pt-8 text-xl font-medium font-lato max-md:text-sm z-10">
           <span
             className="underline"
             onMouseEnter={() => setHovering("Cohort-based")}
@@ -135,12 +151,12 @@ const Landing = () => {
           </span>{" "}
           to build practical LLM-powered agents
         </h1>
-        <div className="min-h-[10vh]"></div>
+        <div className="min-h-[15vh] md:min-h-[10vh]"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk   md:w-[80%] z-[30] mt-20 font-garet text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk   md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-[12.36px]">
           <p className="z-[30]">
             This immersive{" "}
-            <span className="text-white">
+            <span className="text-white font-bold md:font-normal">
               cohort<span className="font-lato">-</span>based bootcamp
             </span>{" "}
             builds a solid foundation in how{" "}

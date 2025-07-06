@@ -110,9 +110,9 @@ export default function App() {
             <Route path="/" element={<Layout />}>
               <Route index element={<Homepage />} />
               <Route path="/home" element={<Homepage />} />
-              <Route path="/DecoLabs" element={<DeCoLabs />} />
-              <Route path="/DecoLabs/informationSource" element={<Proof1 />} />
-              <Route path="/DecoLabs/honestlook" element={<Honest />} />
+              <Route path="/originals/llm-beyond-the-prompt" element={<DeCoLabs />} />
+              <Route path="/originals/llm-beyond-the-prompt/informationSource" element={<Proof1 />} />
+              <Route path="/originals/llm-beyond-the-prompt/honestlook" element={<Honest />} />
               <Route path="/counting" element={<CountdownPage />} />
             </Route>
           </Routes>

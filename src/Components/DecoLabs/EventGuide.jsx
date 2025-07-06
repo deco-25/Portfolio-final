@@ -24,7 +24,7 @@ const EventGuide = () => {
           <div className="flex flex-wrap gap-12 justify-between items-stretch text-white">
             {/* Environment */}
             <article
-              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]"
+              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[300px]"
               aria-label="Event Environment"
             >
               <div
@@ -55,7 +55,7 @@ const EventGuide = () => {
 
             {/* Cohort Runtime */}
             <article
-              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]"
+              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[300px]"
               aria-label="Cohort Schedule"
             >
               <div
@@ -64,7 +64,7 @@ const EventGuide = () => {
               >
                 <FaUsers size={32} className="text-white" />
               </div>
-              <div className="">
+              <div className="w-fit">
                 <h2 className="text-xl font-lato font-semibold mb-1">
                   Cohort Runtime
                 </h2>
@@ -79,7 +79,7 @@ const EventGuide = () => {
 
             {/* Conversation */}
             <article
-              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[30%]"
+              className="flex items-center gap-4 bg-[#2c2c2c] p-5 rounded-2xl shadow-md hover:scale-[1.02] transition-all w-full md:w-[300px]"
               aria-label="Language of Conversation"
             >
               <div
