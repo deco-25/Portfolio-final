@@ -96,10 +96,10 @@ const FeaturesComponent = ({ ...props }) => {
           <div className="h-full text-center pl-96 flex justify-center items-end -mb-[25px] max-md:hidden">
             <h1
               id={`day-text-${props.number}`}
-              data-text={`What's rolling ?`}
+              data-text={`What's rolling?`}
               className="text-[72px] font-bold font-ilisarniq half-fill-text w-full"
             >
-              <span id={`day-${props.number}`}>What's rolling ?</span>
+              <span id={`day-${props.number}`}>What's rolling?</span>
             </h1>
           </div>
 

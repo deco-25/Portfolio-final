@@ -51,7 +51,7 @@ const epochs = [
     type: "CHAPTER",
     title: "IT ALL LED HERE",
     content:
-      "Every idea. Every line of code. Every agent. It all led here. This is the final day where you stop following and start creating. You’ll build and showcase a complete AI agent, equipped with tools, memory, and workflows. Not just a project. A proof of what you now carry. You didn’t come this far just to learn. This is your moment. If your team wins the mini hackathon, we’ll refund your entire bootcamp fee   no catch, just your skills paying off.",
+      "Every idea. Every line of code. Every agent. It all led here. This is the final day where you stop following and start creating. You’ll build and showcase a complete AI agent, equipped with tools, memory, and workflows. Not just a project. A proof of what you now carry. You didn’t come this far just to learn. This is your moment. A ₹5000 cash prize awaits the winning team of the mini hackathon. Let your skills do the talking.",
     date: "27th September",
     image: day6,
   },
@@ -68,14 +68,14 @@ const joinning = [
   {
     title: "PAST ATTENDEE",
     content:
-      "Available to previous DeCo workshop participants. Enter your workshop ID and sent to your email to unlock this discount.",
+      "Available to previous DeCo workshop participants. Enter your workshop ID, sent to your registered email to unlock this discount.",
     price: "1899",
     link: "https://forms.gle/FQh7CA6XyTckvcKE7",
   },
   {
     title: "STUDENT",
     content:
-      "For students currently pursuing their education and looking to gain hands on experience with real world AI. Upload a valid college/school ID.",
+      "For students currently pursuing their education and looking to gain hands on experience with real world AI. Upload a valid college or school ID.",
     price: "1999",
     link: "https://forms.gle/oXLL46e6YMXDC9J8A",
   },

@@ -14,9 +14,9 @@ const EventGuide = () => {
         <header>
           <h1
             id="event-guide-heading"
-            className="text-4xl font-extrabold text-white font-ilisarniq max-md:text-3xl"
+            className="text-5xl font-extrabold text-white font-ilisarniq max-md:text-3xl"
           >
-            Event Details
+            Where? When? How?
           </h1>
         </header>
 
@@ -37,10 +37,18 @@ const EventGuide = () => {
                 <h2 className="text-xl font-lato font-semibold mb-1">
                   Environment
                 </h2>
-                <p className="font-garet text-sm leading-snug text-gray-300">
-                  Atal Incubation Centre <span className="font-lato">(</span>
-                  AIC<span className="font-lato">-</span>PECF
-                  <span className="font-lato">)</span>
+                <p className="font-garet text-sm leading-snug text-gray-300 hover:underline">
+                  <a
+                    href="https://maps.app.goo.gl/aRR7iJvNkuqSFfhy7"
+                    target="_blank"
+                  >
+                    Atal Incubation Centre{" "}
+                    <span className="font-lato">
+                      <br />(
+                    </span>
+                    AIC<span className="font-lato">-</span>PECF, PTU
+                    <span className="font-lato">)</span>
+                  </a>
                 </p>
               </div>
             </article>
@@ -56,13 +64,12 @@ const EventGuide = () => {
               >
                 <FaUsers size={32} className="text-white" />
               </div>
-              <div>
+              <div className="">
                 <h2 className="text-xl font-lato font-semibold mb-1">
                   Cohort Runtime
                 </h2>
-                <p className="font-garet text-sm leading-snug text-gray-300">
-                  6 Saturdays <span className="font-lato">|</span> 6 Epochs{" "}
-                  <span className="font-lato">|</span> 6 Milestones
+                <p className="font-garet text-sm leading-snug text-gray-300 w-fit text-nowrap">
+                  6 Saturdays <span className="font-lato">|</span> 6 Milestones
                 </p>
                 <p className="text-white/50 text-xs mt-1">
                   Aug 23, 30, Sept 06, 13, 20, 27
@@ -86,10 +93,9 @@ const EventGuide = () => {
                   Conversation
                 </h2>
                 <p className="font-garet text-sm text-gray-300">English</p>
-                <p className="text-white/50 text-xs mt-1">
+                <p className="text-white/50 text-xs mt-1 text-nowrap">
                   <span className="font-lato">(</span>
-                  But hey<span className="font-lato"> - </span> we’ll switch to
-                  Tamil if you need it!
+                  we’ll switch to Tamil if you need it!
                   <span className="font-lato">)</span>
                 </p>
               </div>

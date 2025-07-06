@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { HalfLogo, vid1, vid2 } from "../../assets";
+import { DeCoLogo, HalfLogo, vid1, vid2 } from "../../assets";
 import { solutionImg1 } from "../../data";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
@@ -62,8 +62,11 @@ const Landing = () => {
     });
   }, []);
   return (
-    <div className="min-h-screen text-white bg-primaryBlack flex justify-evenly  flex-col relative">
-      <div className="absolute flex md:flex-col justify-center bg-white items-center gap-5 text-black p-4 left-0 md:top-[50px] max-md:top-0">
+    <div className="min-h-screen text-white bg-primaryBlack flex md:justify-evenly max-md:justify-between max-md:h-screen max-md:py-20  flex-col relative">
+      <div className="absolute top-0 left-0 flex p-5">
+        <img src={DeCoLogo} alt="" className="w-[80px] invert" />
+      </div>
+      <div className="absolute flex md:flex-col justify-center bg-white items-center gap-5 text-black p-4 md:left-0 md:top-[100px] max-md:top-0 max-md:right-0 max-md:hidden">
         <img src={HalfLogo} alt="" className="w-6 invert" />
         <p
           className="text-md font-bold font-garet max-md:hidden"
@@ -71,9 +74,9 @@ const Landing = () => {
             writingMode: "sideways-lr",
           }}
         >
-          DeCo Orginals
+          DeCo Originals
         </p>
-        <p className="text-md font-bold font-garet md:hidden">DeCo Orginals</p>
+        <p className="text-md font-bold font-garet md:hidden">DeCo Originals</p>
       </div>
       <div
         id="text-content"
@@ -87,7 +90,7 @@ const Landing = () => {
           {hovering === "Cohort-based" && (
             <div
               id="image-1"
-              className="absolute top-0 z-[20] -right-40 flex items-center justify-center"
+              className="absolute top-0 z-[20] -right-40 flex items-center justify-center max-md:hidden"
             >
               <img
                 src={vid1}
@@ -100,7 +103,7 @@ const Landing = () => {
           {hovering === "bootcamp" && (
             <div
               id="image-2"
-              className="absolute top-0 z-[20] right-20 flex items-center justify-center"
+              className="absolute top-0 z-[20] right-20 flex items-center justify-center max-md:hidden"
             >
               <img
                 src={vid2}

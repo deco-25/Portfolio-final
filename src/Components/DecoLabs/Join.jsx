@@ -12,7 +12,7 @@ const Join = () => {
       aria-labelledby="join-heading"
     >
       <div className="flex flex-col gap-8 justify-center items-start w-[80%] max-md:w-[90%]">
-        <header>
+        <header className="flex justify-center w-full">
           <h2
             id="join-heading"
             className="text-3xl font-bold font-aboreto max-md:px-6 max-md:text-lg"
@@ -114,7 +114,7 @@ const Join = () => {
                       rel="noopener noreferrer"
                       aria-label={`Apply now for ${ele.title}`}
                     >
-                      <button className="bg-white text-black p-2 rounded-xl">
+                      <button className="bg-white text-black p-2 rounded-xl hover:border-white hover:border-2 hover:bg-black duration-200 ease-linear transition-all hover:text-white border-black border-2">
                         Apply Now
                       </button>
                     </a>
@@ -137,8 +137,8 @@ const Join = () => {
           </div>
         </section>
 
-        <footer>
-          <p className="text-lg pt-8 font-garet max-md:text-xs max-md:px-6">
+        <footer className="flex justify-center items-center w-full">
+          <p className="text-lg pt-8 font-garet max-md:text-xs max-md:px-6 text-center w-full">
             We keep the cohort small so everyone gets the support they need.
             Lock in your spot before it’s gone.
           </p>
