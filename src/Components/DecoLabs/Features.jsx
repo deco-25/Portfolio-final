@@ -163,7 +163,7 @@ const FeaturesComponent = ({ ...props }) => {
               <h1 className="text-2xl mb-2 font-bold text-white">
                 {props.title}
               </h1>
-              <p className="text-sm font-garet text-white/60 text-justify">
+              <p className="text-sm font-garet text-white md:text-white/60 text-justify">
                 {props.content}
               </p>
             </div>
