@@ -12,7 +12,6 @@ const FeaturesComponent = ({ ...props }) => {
   const ref = React.useRef(null);
   const containerRef = React.useRef(null);
 
-
   useGSAP(() => {
     gsap.from(`#day-text-${props.number}`, {
       left: 200,
@@ -76,7 +75,6 @@ const FeaturesComponent = ({ ...props }) => {
     }
   }, []);
 
-
   const handleMouseMove = (e) => {
     const rect = ref.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -108,7 +106,6 @@ const FeaturesComponent = ({ ...props }) => {
       onMouseLeave={resetOffset}
       className="min-h-screen flex items-center overflow-hidden"
     >
-
       <div className="flex h-screen items-center gap-8 w-[80vw]">
         <div className="h-screen relative flex flex-col justify-between items-start w-[90%]">
           {/* OPOINT Text */}
@@ -144,7 +141,9 @@ const FeaturesComponent = ({ ...props }) => {
               />
             </div>
 
-            <div className={`mobile-gradient-overlay-${props.number} absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-500`}></div>
+            <div
+              className={`mobile-gradient-overlay-${props.number} absolute bottom-0 left-0 w-full h-full bg-gradient-to-t from-black/70 to-transparent z-10 opacity-0 group-hover:opacity-100 md:transition-opacity md:duration-500`}
+            ></div>
 
             {/* Desktop (hover-based) */}
             <div className="absolute bottom-20 opacity-0 left-0 w-full text-white p-4 md:px-12 z-20 transform translate-y-full group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-in-out max-md:hidden">
@@ -167,23 +166,22 @@ const FeaturesComponent = ({ ...props }) => {
                 {props.content}
               </p>
             </div>
-
-
           </div>
         </div>
         <div className="relative h-screen flex justify-center items-center">
           <div
             className="absolute z-[500] bottom-20 group hover:bg-rose-500 border-rose-500 border-2 w-[150px] h-[150px] text-center flex justify-center items-center rounded-full duration-200 ease-linear transition-all"
             style={{
-              transform: `translate3d(${offset.x}px, ${offset.y
-                }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
+              transform: `translate3d(${offset.x}px, ${
+                offset.y
+              }px, 0px) rotateZ(${offset.x * 0.5}deg)`,
               transformStyle: "preserve-3d",
               willChange: "transform",
             }}
           >
             <div className="circle-text">
               <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-                <span>{props.date}</span>
+                <span>September 2025</span>
               </h1>
             </div>
           </div>

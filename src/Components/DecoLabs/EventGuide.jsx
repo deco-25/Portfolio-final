@@ -69,7 +69,8 @@ const EventGuide = () => {
                   Cohort Runtime
                 </h2>
                 <p className="font-garet text-sm leading-snug text-gray-300 w-fit text-nowrap">
-                  6 Saturdays <span className="font-lato">|</span> 6 Milestones
+                  <span className="font-lato">4</span> Weeks{" "}
+                  <span className="font-lato">|</span> 8 Chapters
                 </p>
                 <p className="text-white/50 text-xs mt-1">
                   Aug 23, 30, Sept 06, 13, 20, 27
@@ -102,6 +103,9 @@ const EventGuide = () => {
             </article>
           </div>
         </div>
+        <h1 className="text-xl font-bold text-white/70 font-garet max-md:text-sm">
+          “Scroll down to see the pricing tiers.”
+        </h1>
       </div>
     </section>
   );

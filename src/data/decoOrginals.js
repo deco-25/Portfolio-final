@@ -4,56 +4,38 @@ const epochs = [
   {
     number: "01",
     type: "CHAPTER",
-    title: "THE MIND BEFORE MEMORY",
+    title: "ATTENTION IS ALL YOU NEED",
     content:
-      "Before a machine can remember, it must learn to think. Step into the world of Artificial Intelligence by uncovering how machines process information, find patterns, and improve with experience. You’ll explore the foundations of AI and machine learning, build your first model step by step, and uncover how algorithms like gradient descent learn and evolve from data.",
+      "Before machines can understand, they must learn to learn. This session takes you through the evolution of AI, from the basics of machine learning and gradient descent to the rise of neural networks like CNNs and RNNs. You'll then unravel how attention mechanisms and transformers reshaped deep learning, powering models like GPT and Gemini. A complete journey from perception to intelligence.",
     date: "23rd August",
     image: day1,
   },
   {
     number: "02",
     type: "CHAPTER",
-    title: "ATTENTION IS ALL YOU NEED",
+    title: "AND THEN IT SPOKE",
     content:
-      "Enter the age of deep learning, where neural networks go beyond patterns and begin to understand. You’ll explore how Convolutional and Recurrent Neural Networks paved the way and then decode the breakthrough idea that changed everything: Attention. By the end of the day, you’ll know exactly how transformers work and why they became the foundation of powerful models like GPT and Gemini.",
+      "It listened. It learned. Now it speaks. Explore the inner workings of LLMs like GPT and Gemini, from tokenization, embeddings, pretraining, fine-tuning, inference, and more. You'll uncover how these models convert data into understanding, and prompts into dialogue. Finally, bring it all to life by building your first AI agent, diving into environments, tool use, memory, and how LLMs move from language to action.",
     date: "30th August",
     image: day2,
   },
   {
     number: "03",
     type: "CHAPTER",
-    title: "AND THEN IT SPOKE",
+    title: "ORDERS FROM THE THRONE",
     content:
-      "It listened. It learned. And now it speaks. This is where raw computation becomes conversation. You’ll explore how LLMs like GPT and Gemini turn numbers into meaning, prompts into dialogue, and text into intelligent action. From embeddings to fine tuning, you’ll finally understand how these models are built and how they think in words. From language to action, you’ll close the day by creating your first AI agent.",
+      "This is where agents stop reacting and start leading. You’ll build AI systems that reason in steps, take parallel actions, handle failures, and loop until goals are met. Then, scale up to agents that delegate, manage sub-agents, and make decisions in dynamic environments. From memory to multi-agent coordination, you’ll design AI that doesn’t just act,you’ll design agents that not only act, but orchestrate, endure, and lead.",
     date: "06th September",
     image: day3,
   },
   {
     number: "04",
     type: "CHAPTER",
-    title: "I CAN DO THIS ALL DAY",
+    title: "WHATEVER IT TAKES",
     content:
-      "This is where agents stop reacting and start taking control. You’ll design intelligent systems that think in steps, execute parallel actions, handle failures with retries, and loop through tasks until goals are met. With tools in hand and memory to rely on, your agents begin to solve real world problems with structure and strategy. By the end of the day, you won’t just build an AI that works, you’ll build one that endures, strategizes, and never gives up.",
+      "Every idea. Every line of code. Every agent. It all leads to this. On the final day, you’ll build and demo a complete AI agent system, equipped with tools, memory, and workflows. This is where theory becomes practice, as you take on real-world problem statements through hands-on, multi-agent projects. Compete in this mini-hackathon to win prizes, and close the journey by exploring the future of Agentic AI and the frameworks shaping it. Until next time - Design and Code.",
     date: "13rd September",
     image: day4,
-  },
-  {
-    number: "05",
-    type: "CHAPTER",
-    title: "ORDERS FROM THE THRONE",
-    content:
-      "It’s time for your agents to lead. On this day, you’ll build systems that can delegate tasks, manage sub agents, and make dynamic decisions in complex environments. Through multi agent coordination, hierarchical control, and task decomposition, your agents will operate not as individuals, but as commanders of intelligent systems. By the end, you’ll understand how to architect AI that not only completes tasks, but orders others to do so.",
-    date: "20th September",
-    image: day5,
-  },
-  {
-    number: "06",
-    type: "CHAPTER",
-    title: "IT ALL LED HERE",
-    content:
-      "Every idea. Every line of code. Every agent. It all led here. This is the final day where you stop following and start creating. You’ll build and showcase a complete AI agent, equipped with tools, memory, and workflows. Not just a project. A proof of what you now carry. You didn’t come this far just to learn. This is your moment. A ₹5000 cash prize awaits the winning team of the mini hackathon. Let your skills do the talking.",
-    date: "27th September",
-    image: day6,
   },
 ];
 
