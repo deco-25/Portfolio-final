@@ -16,7 +16,7 @@ const epochs = [
     title: "AND THEN IT SPOKE",
     content:
       "It listened. It learned. Now it speaks. Explore the inner workings of LLMs like GPT and Gemini, from tokenization, embeddings, pretraining, fine tuning, inference, and more. You'll uncover how these models convert data into understanding, and prompts into dialogue. Finally, bring it all to life by building your first AI agent, diving into environments, tool use, memory, and how LLMs move from language to action.",
-    date: "13rd September",
+    date: "13th September",
     image: day3,
   },
   {

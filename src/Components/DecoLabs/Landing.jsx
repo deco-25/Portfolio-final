@@ -102,6 +102,8 @@ const Landing = () => {
           {hovering === "Cohort-based" && (
             <div
               id="image-1"
+              onMouseEnter={() => setHovering("Cohort-based")}
+              onMouseLeave={() => setHovering("")}
               className="absolute top-0 z-[20] -right-40 flex items-center justify-center max-md:hidden"
             >
               <img
@@ -115,7 +117,9 @@ const Landing = () => {
           {hovering === "bootcamp" && (
             <div
               id="image-2"
-              className="absolute top-0 z-[20] right-20 flex items-center justify-center max-md:hidden"
+              onMouseEnter={() => setHovering("bootcamp")}
+              onMouseLeave={() => setHovering("")}
+              className="absolute top-0 z-[20] right-20z flex items-center justify-center max-md:hidden"
             >
               <img
                 src={vid2}
@@ -158,7 +162,7 @@ const Landing = () => {
         </h1>
         <div className="min-h-[15vh] md:min-h-[10vh] max-md:hidden"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk max-md:hidden md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk max-md:hidden md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-sm">
           <p className="z-[30]">
             This immersive{" "}
             <span className="text-white font-bold md:font-normal">
