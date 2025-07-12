@@ -73,7 +73,7 @@ const EventGuide = () => {
                   <span className="font-lato">|</span> 8 Chapters
                 </p>
                 <p className="text-white/50 text-xs mt-1">
-                  Aug 23, 30, Sept 06, 13, 20, 27
+                  Saturdays - September 2025
                 </p>
               </div>
             </article>

@@ -181,7 +181,7 @@ const FeaturesComponent = ({ ...props }) => {
           >
             <div className="circle-text">
               <h1 className="scale-105 group-hover:scale-[150%] font-bold duration-200 ease-linear transition-all">
-                <span>September 2025</span>
+                <span>{props.date}</span>
               </h1>
             </div>
           </div>
@@ -219,7 +219,7 @@ const Features = () => {
           image={ele.image}
         />
       ))}
-      <div className="sticky w-fit bottom-0 left-0 bg-white text-black px-4 py-2 md:py-4 md:px-8 font-semibold font-lato z-[100]">
+      <div className="sticky w-fit bottom-0 left-0 bg-white text-black px-4 py-2 md:py-3 md:px-6 font-semibold font-lato z-[100]">
         <h1 className="text-xl">CURRICULUM</h1>
       </div>
     </div>

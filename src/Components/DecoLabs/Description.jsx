@@ -2,7 +2,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 const Description = () => {
   useGSAP(() => {
@@ -14,6 +14,8 @@ const Description = () => {
       },
     });
   }, []);
+  const location = useLocation();
+  const pathname = location.pathname;
 
   return (
     <div className="min-h-screen text-white bg-primaryBlack flex md:justify-between max-md:gap-6  flex-col relative items-center">
@@ -33,7 +35,7 @@ const Description = () => {
           people, nearly{" "}
           <Link
             className="font-bold text-white cursor-pointer hover:underline"
-            to="/originals/llm-beyond-the-prompt/informationSource"
+            to={`${pathname}/informationSource`}
           >
             25
             <span className="font-lato">%*</span>
@@ -41,7 +43,7 @@ const Description = () => {
           Internet users use LLM tools like ChatGPT and Gemini. But only about{" "}
           <Link
             className="font-bold text-white hover:underline cursor-pointer"
-            to="/originals/llm-beyond-the-prompt/informationSource"
+            to={`${pathname}/informationSource`}
           >
             15
             <span className="font-lato">%*</span>
@@ -71,7 +73,7 @@ const Description = () => {
           <span className="font-lato">-</span>you won’t become a{" "}
           <Link
             className="font-bold text-white cursor-pointer hover:underline"
-            to="/originals/llm-beyond-the-prompt/honestlook"
+            to={`${pathname}/honestlook`}
           >
             prodigy overnight<span className="font-lato">**</span>
           </Link>

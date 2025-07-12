@@ -173,7 +173,7 @@ const Landing = () => {
             you with the skills to design agentic. AI systems that reason,
             adapt, and act in real
             <span className="font-lato">-</span>world environments through hands
-            <span className="font-lato">-</span>on projects and practical tools
+            <span className="font-lato">-</span>on projects and practical tools.
           </p>
         </div>
       </div>

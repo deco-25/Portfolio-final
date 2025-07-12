@@ -1,10 +1,28 @@
 import React from "react";
 import { solutionImg1 } from "../data";
 import { gemini } from "../assets";
+import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 
 const Proof1 = () => {
+  function BackIconButton() {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+      navigate(-1); // Go back to the last visited page
+    };
+
+    return (
+      <button onClick={handleBack}>
+        <BiArrowBack size={24} />
+      </button>
+    );
+  }
   return (
     <div className="min-h-screen text-primaryGray flex justify-center items-center md:py-20 max-md:py-8">
+      <div className="absolute top-12 left-12 max-md:top-8 max-md:left-4">
+        <BackIconButton />
+      </div>
       <div className="flex flex-col justify-center items-center gap-8 max-md:px-8">
         <h1 className="md:text-4xl font-aboreto font-bold text-white max-md:text-[15px] max-md:text-center">
           The information is sourced from Gemini’s <br className="md:hidden" />

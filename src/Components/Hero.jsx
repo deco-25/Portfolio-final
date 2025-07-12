@@ -61,14 +61,14 @@ const Hero = () => {
 
       {/* Hero Text Content */}
       <div className="relative md:z-10 flex flex-col bg-transparent items-center mt-10 max-md:gap-2 max-md:mb-[30vh]">
-        <h1 className="font-aboreto  text-8xl max-md:text-2xl">
+        <h1 className="font-aboreto  text-[90px] max-md:text-2xl max-[2560]:text-86px">
           INNOVATING AT THE
         </h1>
         <div className="flex justify-center gap-8 md:mt-6">
-          <h1 className="font-aboreto  text-8xl max-md:text-2xl">
+          <h1 className="font-aboreto  text-[90px] max-md:text-2xl">
             INTERSECTION OF
           </h1>
-          <div className="flex justify-center flex-col font-garet text-sm max-w-[35%] text-start max-md:hidden -ml-2">
+          <div className="flex justify-center flex-col font-garet text-sm max-w-[35%] text-start max-md:hidden -ml-2 text-nowrap">
             <p>
               Great products are built where design meets code with strategy.
             </p>
@@ -78,7 +78,7 @@ const Hero = () => {
             <p>look good but perform exceptionally.</p>
           </div>
         </div>
-        <h1 className="font-aboreto text-8xl max-md:text-3xl md:mt-6">
+        <h1 className="font-aboreto text-[90px] max-md:text-3xl md:mt-6 max-[2560]:text-86px">
           DESIGN & CODE
         </h1>
       </div>

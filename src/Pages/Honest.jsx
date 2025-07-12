@@ -1,14 +1,33 @@
 import React from "react";
 import { solutionImg1 } from "../data";
 import { LLM } from "../assets";
+import { useNavigate } from "react-router-dom";
+import { BiArrowBack } from "react-icons/bi";
 
 const Honest = () => {
+  function BackIconButton() {
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+      navigate(-1); // Go back to the last visited page
+    };
+
+    return (
+      <button onClick={handleBack}>
+        <BiArrowBack size={24} />
+      </button>
+    );
+  }
+
   return (
     <section
       id="bootcamp-overview"
       className="h-screen text-white flex justify-center items-center"
       aria-labelledby="bootcamp-honest-look"
     >
+      <div className="absolute top-12 left-12 max-md:top-6 max-md:left-6">
+        <BackIconButton />
+      </div>
       <div className="flex gap-12 md:px-32 items-center max-md:px-8">
         {/* Visual Section */}
         <div className="w-[40%] max-md:hidden">
