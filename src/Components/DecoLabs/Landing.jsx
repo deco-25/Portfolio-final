@@ -156,9 +156,29 @@ const Landing = () => {
             AI agents powered by LLMs.
           </span>{" "}
         </h1>
-        <div className="min-h-[15vh] md:min-h-[10vh]"></div>
+        <div className="min-h-[15vh] md:min-h-[10vh] max-md:hidden"></div>
         {/*<span className="text-white">scroll</span> */}
-        <div className="text-chunk   md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+        <div className="text-chunk max-md:hidden md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-[12.36px]">
+          <p className="z-[30]">
+            This immersive{" "}
+            <span className="text-white font-bold md:font-normal">
+              cohort<span className="font-lato">-</span>based bootcamp
+            </span>{" "}
+            builds a solid foundation in how{" "}
+            <span className="text-white">
+              LLMs like GPT
+              <span className="font-lato">-4</span> and Gemini
+            </span>{" "}
+            are built and how they work, going beyond writing prompts to equip
+            you with the skills to design agentic. AI systems that reason,
+            adapt, and act in real
+            <span className="font-lato">-</span>world environments through hands
+            <span className="font-lato">-</span>on projects and practical tools.
+          </p>
+        </div>
+      </div>
+      <div className="max-md:mx-6 md:hidden">
+        <div className="text-chunk md:w-[80%] z-[30] mt-20 font-garet text-[#dbdbdb] md:text-[#808080] max-md:text-xs text-justify text-[12.36px]">
           <p className="z-[30]">
             This immersive{" "}
             <span className="text-white font-bold md:font-normal">
